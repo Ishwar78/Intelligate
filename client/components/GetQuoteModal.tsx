@@ -151,22 +151,41 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
 
         {/* Modal Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          {/* Full Name */}
-          <div>
-            <Label htmlFor="fullName" className="text-sm font-medium text-gray-700 mb-2 block">
-              Full Name *
-            </Label>
-            <Input
-              id="fullName"
-              type="text"
-              value={formData.fullName}
-              onChange={(e) => handleInputChange("fullName", e.target.value)}
-              className={`w-full ${errors.fullName ? 'border-red-500' : ''}`}
-              placeholder="Enter your full name"
-            />
-            {errors.fullName && (
-              <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
-            )}
+          {/* First Name and Last Name */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2 block">
+                First Name *
+              </Label>
+              <Input
+                id="firstName"
+                type="text"
+                value={formData.firstName}
+                onChange={(e) => handleInputChange("firstName", e.target.value)}
+                className={`w-full ${errors.firstName ? 'border-red-500' : ''}`}
+                placeholder="Enter your first name"
+              />
+              {errors.firstName && (
+                <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+              )}
+            </div>
+
+            <div>
+              <Label htmlFor="lastName" className="text-sm font-medium text-gray-700 mb-2 block">
+                Last Name *
+              </Label>
+              <Input
+                id="lastName"
+                type="text"
+                value={formData.lastName}
+                onChange={(e) => handleInputChange("lastName", e.target.value)}
+                className={`w-full ${errors.lastName ? 'border-red-500' : ''}`}
+                placeholder="Enter your last name"
+              />
+              {errors.lastName && (
+                <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+              )}
+            </div>
           </div>
 
           {/* Email */}
