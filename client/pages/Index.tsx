@@ -43,6 +43,7 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [latestJobs, setLatestJobs] = useState<Job[]>([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const location = useLocation();
 
   // Fetch latest jobs
