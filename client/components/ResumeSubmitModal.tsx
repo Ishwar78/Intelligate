@@ -70,12 +70,12 @@ export default function ResumeSubmitModal({ isOpen, onClose }: ResumeSubmitModal
       });
 
       const resumeData = {
-        fullName: formData.fullName,
+        fullName: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
         phone: formData.phone,
         message: `RESUME SUBMISSION
 
-Name: ${formData.fullName}
+Name: ${formData.firstName} ${formData.lastName}
 Email: ${formData.email}
 Phone: ${formData.phone}
 
