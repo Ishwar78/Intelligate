@@ -45,6 +45,7 @@ export default function Index() {
   const [latestJobs, setLatestJobs] = useState<Job[]>([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [isHomepageModalOpen, setIsHomepageModalOpen] = useState(false);
   const location = useLocation();
 
   // Fetch latest jobs
