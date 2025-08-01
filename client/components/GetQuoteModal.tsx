@@ -104,7 +104,8 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
 
       // Reset form and close modal on success
       setFormData({
-        fullName: "",
+        firstName: "",
+        lastName: "",
         email: "",
         phone: "",
         message: ""
