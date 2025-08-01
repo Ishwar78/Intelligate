@@ -37,14 +37,19 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
 
   const validateForm = () => {
     const newErrors = {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       message: ""
     };
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
     }
 
     if (!formData.email.trim()) {
