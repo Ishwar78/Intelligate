@@ -89,7 +89,7 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          fullName: formData.fullName,
+          fullName: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           phone: formData.phone,
           message: `Get Quote Request:\n\n${formData.message}`
