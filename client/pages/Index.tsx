@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +23,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ServiceDropdown from "@/components/ServiceDropdown";
+import GetQuoteModal from "@/components/GetQuoteModal";
 
 interface Job {
   _id: string;
