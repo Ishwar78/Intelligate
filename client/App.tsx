@@ -23,6 +23,7 @@ import RPO from "./pages/services/RPO";
 import TalentMapping from "./pages/services/TalentMapping";
 import CompetitorAnalysis from "./pages/services/CompetitorAnalysis";
 import DiversityHiring from "./pages/services/DiversityHiring";
+import PlacementVision from "./pages/PlacementVision";
 
 const queryClient = new QueryClient();
 
