@@ -89,6 +89,15 @@ export default function Index() {
   }, []);
 const [activeIndex, setActiveIndex] = useState(0);
 
+// Show homepage modal after page loads
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setIsHomepageModalOpen(true);
+  }, 2000); // Show modal after 2 seconds
+
+  return () => clearTimeout(timer);
+}, []);
+
 useEffect(() => {
   const interval = setInterval(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % 4); // 4 slides
