@@ -1224,6 +1224,12 @@ useEffect(() => {
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
       />
+
+      {/* Homepage Welcome Modal */}
+      <HomepageModal
+        isOpen={isHomepageModalOpen}
+        onClose={() => setIsHomepageModalOpen(false)}
+      />
     </div>
   );
 }
