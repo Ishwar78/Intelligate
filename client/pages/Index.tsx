@@ -259,7 +259,11 @@ useEffect(() => {
               A Gateway of <span className="font-black tracking-wider">INTELLIGENCE</span>
             </h1>
             <div className="animate-fade-in-up animation-delay-600 opacity-0">
-              <Button size="lg" className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-xl px-16 py-6 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <Button
+                size="lg"
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-xl px-16 py-6 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
                 Explore Opportunities
               </Button>
             </div>
