@@ -102,7 +102,8 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
         setSubmitStatus('success');
         // Reset form
         setFormData({
-          fullName: '',
+          firstName: '',
+          lastName: '',
           email: '',
           phone: '',
           message: ''
