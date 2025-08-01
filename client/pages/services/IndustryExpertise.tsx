@@ -128,11 +128,11 @@ export default function IndustryExpertise() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
-              Industries We Cover
+              Our Trusted Clients
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              Our deep industry expertise spans across multiple verticals,
-              ensuring we understand your unique talent requirements
+              We are proud to serve leading companies across multiple industries,
+              delivering exceptional talent solutions that drive business success
             </p>
           </div>
 
