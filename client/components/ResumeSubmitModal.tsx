@@ -13,7 +13,8 @@ interface ResumeSubmitModalProps {
 
 export default function ResumeSubmitModal({ isOpen, onClose }: ResumeSubmitModalProps) {
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     message: ''
