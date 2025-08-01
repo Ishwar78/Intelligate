@@ -12,13 +12,15 @@ interface GetQuoteModalProps {
 
 export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
   const [formData, setFormData] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     message: ""
   });
   const [errors, setErrors] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     message: ""
