@@ -13,12 +13,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-              <div className="relative p-1.5 sm:p-2 bg-gradient-to-br from-blue-900 to-red-600 rounded-lg sm:rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+            <Link to="/" className="flex items-center gap-2 sm:gap-3">
+              <div className="relative">
                 <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2Fffd6997b070949e7808ca68d4da19889?format=webp&width=800"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2Fdca3c63aafbc41f9979080284c93e25f?format=webp&width=800"
                   alt="Intelligate Solutions Logo"
-                  className="h-6 w-6 sm:h-8 sm:w-8 filter brightness-0 invert"
+                  className="h-10 w-10 sm:h-12 sm:w-12"
                 />
               </div>
               <div className="flex flex-col">

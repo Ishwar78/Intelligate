@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +23,8 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ServiceDropdown from "@/components/ServiceDropdown";
+import GetQuoteModal from "@/components/GetQuoteModal";
+import HomepageModal from "@/components/HomepageModal";
 
 interface Job {
   _id: string;
@@ -43,6 +44,8 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [latestJobs, setLatestJobs] = useState<Job[]>([]);
   const [loadingJobs, setLoadingJobs] = useState(true);
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [isHomepageModalOpen, setIsHomepageModalOpen] = useState(false);
   const location = useLocation();
 
   // Fetch latest jobs
@@ -85,6 +88,15 @@ export default function Index() {
     return () => observer.disconnect();
   }, []);
 const [activeIndex, setActiveIndex] = useState(0);
+
+// Show homepage modal after page loads
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setIsHomepageModalOpen(true);
+  }, 2000); // Show modal after 2 seconds
+
+  return () => clearTimeout(timer);
+}, []);
 
 useEffect(() => {
   const interval = setInterval(() => {
@@ -258,7 +270,11 @@ useEffect(() => {
               A Gateway of <span className="font-black tracking-wider">INTELLIGENCE</span>
             </h1>
             <div className="animate-fade-in-up animation-delay-600 opacity-0">
-              <Button size="lg" className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-xl px-16 py-6 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+              <Button
+                size="lg"
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-xl px-16 py-6 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              >
                 Explore Opportunities
               </Button>
             </div>
@@ -330,130 +346,172 @@ useEffect(() => {
                 {/* First set of logos */}
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3147192c09b1498fb93a5289f7331cd1?format=webp&width=800"
-                      alt="Microsoft"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Wipro
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2Fc4138b6ff6ad4611a9475d2f9ecdbbd2?format=webp&width=800"
-                      alt="Amazon"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Teleperformance
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F2c1c179adb234c59816708fb2511a28a?format=webp&width=800"
-                      alt="Wipro"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Telus
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3d0834c19c214e4d83f4f07e764a4d50?format=webp&width=800"
-                      alt="Infosys"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Concentrix
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F9224fe37852c4b76bc0445734abb8e29?format=webp&width=800"
-                      alt="Flipkart"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Cognizant
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F9e98d473820645ddba3bb0f9224632bc?format=webp&width=800"
-                      alt="Intel"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Aisin Automotive
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3883c53df66044c4b0b334540010fa14?format=webp&width=800"
-                      alt="Maruti Suzuki"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Toyota Group
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      FCC Clutch
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Satyam Auto
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Agratas Energy
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Tata Enterprises
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Krishna Group
+                    </div>
                   </div>
                 </div>
 
                 {/* Duplicate set for seamless loop */}
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3147192c09b1498fb93a5289f7331cd1?format=webp&width=800"
-                      alt="Microsoft"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Wipro
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2Fc4138b6ff6ad4611a9475d2f9ecdbbd2?format=webp&width=800"
-                      alt="Amazon"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Teleperformance
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F2c1c179adb234c59816708fb2511a28a?format=webp&width=800"
-                      alt="Wipro"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Telus
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3d0834c19c214e4d83f4f07e764a4d50?format=webp&width=800"
-                      alt="Infosys"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Concentrix
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F9224fe37852c4b76bc0445734abb8e29?format=webp&width=800"
-                      alt="Flipkart"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Cognizant
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F9e98d473820645ddba3bb0f9224632bc?format=webp&width=800"
-                      alt="Intel"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Aisin Automotive
+                    </div>
                   </div>
                 </div>
                 <div className="logo-item">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F3883c53df66044c4b0b334540010fa14?format=webp&width=800"
-                      alt="Maruti Suzuki"
-                      className="h-12 w-auto mx-auto object-contain"
-                    />
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Toyota Group
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      FCC Clutch
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Satyam Auto
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Agratas Energy
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Tata Enterprises
+                    </div>
+                  </div>
+                </div>
+                <div className="logo-item">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <div className="h-12 w-auto mx-auto flex items-center justify-center text-lg font-bold text-gray-700">
+                      Krishna Group
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1152,14 +1210,26 @@ useEffect(() => {
       </footer>
 
       {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/919971019767" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919971019767"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50"
       >
         <MessageCircle size={24} />
       </a>
+
+      {/* Get Quote Modal */}
+      <GetQuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
+
+      {/* Homepage Welcome Modal */}
+      <HomepageModal
+        isOpen={isHomepageModalOpen}
+        onClose={() => setIsHomepageModalOpen(false)}
+      />
     </div>
   );
 }

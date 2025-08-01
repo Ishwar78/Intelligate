@@ -23,6 +23,7 @@ import RPO from "./pages/services/RPO";
 import TalentMapping from "./pages/services/TalentMapping";
 import CompetitorAnalysis from "./pages/services/CompetitorAnalysis";
 import DiversityHiring from "./pages/services/DiversityHiring";
+import PlacementVision from "./pages/PlacementVision";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/services/talent-mapping" element={<TalentMapping />} />
           <Route path="/services/competitor-analysis" element={<CompetitorAnalysis />} />
           <Route path="/services/diversity-hiring" element={<DiversityHiring />} />
+          <Route path="/placement-vision" element={<PlacementVision />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/openings" element={<Openings />} />
           <Route path="/contact" element={<Contact />} />
