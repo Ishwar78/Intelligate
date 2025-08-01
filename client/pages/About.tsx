@@ -383,7 +383,7 @@ export default function About() {
                     <div className="text-center md:text-left">
                       <div className="relative inline-block mb-6">
                         <img
-                          src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F49cf9d7f589c472d960d157db4c4d8f4?format=webp&width=800"
+                          src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2Fd8ffe73c622a4aacb276db650e66ec54?format=webp&width=800"
                           alt="Team Leader"
                           className="w-48 h-48 rounded-full object-cover border-4 border-red-100 shadow-lg mx-auto md:mx-0"
                         />
