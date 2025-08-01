@@ -158,22 +158,41 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
               {/* Personal Information */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="fullName" className="flex items-center gap-2">
+                  <Label htmlFor="firstName" className="flex items-center gap-2">
                     <User className="h-4 w-4" />
-                    Full Name *
+                    First Name *
                   </Label>
                   <Input
-                    id="fullName"
-                    name="fullName"
+                    id="firstName"
+                    name="firstName"
                     type="text"
                     required
-                    value={formData.fullName}
+                    value={formData.firstName}
                     onChange={handleInputChange}
                     className="mt-1"
-                    placeholder="Enter your full name"
+                    placeholder="Enter your first name"
                   />
                 </div>
-                
+
+                <div>
+                  <Label htmlFor="lastName" className="flex items-center gap-2">
+                    <User className="h-4 w-4" />
+                    Last Name *
+                  </Label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    required
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="mt-1"
+                    placeholder="Enter your last name"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="email" className="flex items-center gap-2">
                     <Mail className="h-4 w-4" />
@@ -188,6 +207,23 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
                     onChange={handleInputChange}
                     className="mt-1"
                     placeholder="Enter your email"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="phone" className="flex items-center gap-2">
+                    <Phone className="h-4 w-4" />
+                    Phone Number *
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="mt-1"
+                    placeholder="Enter your phone number"
                   />
                 </div>
               </div>
