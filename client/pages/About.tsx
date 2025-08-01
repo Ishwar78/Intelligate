@@ -305,6 +305,114 @@ export default function About() {
         </div>
       </section>
 
+      {/* Our Placement Process Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8" style={{ fontSize: '36px' }}>Our Placement Process</h2>
+            <div className="max-w-5xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed mb-12">
+                Every candidate at Intelli-gate is carefully filtered by our executives through a detailed assessment of their talent and skills. With 25+ years of industry experience, we deeply understand pain areas and talent gaps. We ensure that only the most suitable candidates are presented to the employer after a rigorous evaluation.
+              </p>
+
+              {/* Bulleted List */}
+              <div className="text-left max-w-3xl mx-auto">
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg font-medium text-gray-800">Strategic Leadership Hiring</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg font-medium text-gray-800">Executive Search</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg font-medium text-gray-800">Diversity Sourcing</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg font-medium text-gray-800">Lateral Hiring</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg font-medium text-gray-800">Bulk Hiring</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Vision Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8" style={{ fontSize: '36px' }}>Our Vision</h2>
+            <div className="max-w-5xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed mb-12">
+                Our vision is multifaceted — to be the most trusted partner for both employers and job seekers, enabling career success and empowering businesses.
+              </p>
+
+              {/* Square Bulleted List */}
+              <div className="text-left max-w-4xl mx-auto">
+                <ul className="space-y-4 pl-6">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold text-lg mt-1">▪</span>
+                    <span className="text-lg text-gray-800">Providing customer delight, offering reliable services.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold text-lg mt-1">▪</span>
+                    <span className="text-lg text-gray-800">Providing a growth-oriented environment for employees to fulfill aspirations.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold text-lg mt-1">▪</span>
+                    <span className="text-lg text-gray-800">Contributing to the well-being of society with integrity and ethics.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8" style={{ fontSize: '32px' }}>Why Choose Us?</h2>
+            <div className="max-w-5xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed mb-12">
+                We blend decades of recruitment experience with innovation to deliver unmatched results.
+              </p>
+
+              {/* Simple Bulleted List */}
+              <div className="text-left max-w-4xl mx-auto">
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg text-gray-800">25+ years of experience in strategic hiring</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg text-gray-800">Access to premium client networks across industries</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg text-gray-800">Specialists for every domain: Automotive, Pharma, ITES & more</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-red-600 rounded-full mt-3 flex-shrink-0"></div>
+                    <span className="text-lg text-gray-800">Offices in Noida, Dehradun, and Rohtak</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Team Section */}
       <section className="py-20 bg-gradient-to-br from-gray-100 to-gray-200 relative">
         {/* Background Pattern */}
