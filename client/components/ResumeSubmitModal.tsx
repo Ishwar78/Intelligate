@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,23 +17,30 @@ interface ResumeSubmitModalProps {
   onClose: () => void;
 }
 
-export default function ResumeSubmitModal({ isOpen, onClose }: ResumeSubmitModalProps) {
+export default function ResumeSubmitModal({
+  isOpen,
+  onClose,
+}: ResumeSubmitModalProps) {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
   });
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -35,27 +48,31 @@ export default function ResumeSubmitModal({ isOpen, onClose }: ResumeSubmitModal
     const file = e.target.files?.[0];
     if (file) {
       // Validate file type
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      ];
       if (!allowedTypes.includes(file.type)) {
-        alert('Please select a PDF or Word document');
+        alert("Please select a PDF or Word document");
         return;
       }
-      
+
       // Validate file size (5MB max)
       if (file.size > 5 * 1024 * 1024) {
-        alert('File size must be less than 5MB');
+        alert("File size must be less than 5MB");
         return;
       }
-      
+
       setSelectedFile(file);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!selectedFile) {
-      alert('Please select a resume file');
+      alert("Please select a resume file");
       return;
     }
 
@@ -80,48 +97,48 @@ Email: ${formData.email}
 Phone: ${formData.phone}
 
 Additional Message:
-${formData.message || 'No additional message provided.'}
+${formData.message || "No additional message provided."}
 
 Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2)} MB)`,
         resume: {
           filename: selectedFile.name,
           content: fileBase64,
-          size: selectedFile.size
-        }
+          size: selectedFile.size,
+        },
       };
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(resumeData)
+        body: JSON.stringify(resumeData),
       });
 
       if (response.ok) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         // Reset form
         setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: ''
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
         });
         setSelectedFile(null);
-        
+
         // Close modal after 2 seconds
         setTimeout(() => {
-          setSubmitStatus('idle');
+          setSubmitStatus("idle");
           onClose();
         }, 2000);
       } else {
-        setSubmitStatus('error');
-        setTimeout(() => setSubmitStatus('idle'), 3000);
+        setSubmitStatus("error");
+        setTimeout(() => setSubmitStatus("idle"), 3000);
       }
     } catch (error) {
-      setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus("idle"), 3000);
     } finally {
       setIsSubmitting(false);
     }
@@ -145,20 +162,25 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
                 <FileText className="h-6 w-6 text-blue-600" />
               </div>
               <div>
-                <CardTitle className="text-2xl text-blue-900">Submit Your Resume</CardTitle>
+                <CardTitle className="text-2xl text-blue-900">
+                  Submit Your Resume
+                </CardTitle>
                 <CardDescription className="text-gray-600">
                   Share your profile with us for upcoming opportunities
                 </CardDescription>
               </div>
             </div>
           </CardHeader>
-          
+
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName" className="flex items-center gap-2">
+                  <Label
+                    htmlFor="firstName"
+                    className="flex items-center gap-2"
+                  >
                     <User className="h-4 w-4" />
                     First Name *
                   </Label>
@@ -254,8 +276,12 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
                     ) : (
                       <div className="space-y-2">
                         <Upload className="h-8 w-8 text-gray-400 mx-auto" />
-                        <p className="text-gray-600 font-medium">Click to upload your resume</p>
-                        <p className="text-sm text-gray-500">PDF, DOC, DOCX up to 5MB</p>
+                        <p className="text-gray-600 font-medium">
+                          Click to upload your resume
+                        </p>
+                        <p className="text-sm text-gray-500">
+                          PDF, DOC, DOCX up to 5MB
+                        </p>
                       </div>
                     )}
                   </label>
@@ -277,17 +303,17 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
 
               {/* Submit Button */}
               <div className="flex gap-4 pt-4">
-                <Button 
-                  type="button" 
-                  variant="outline" 
+                <Button
+                  type="button"
+                  variant="outline"
                   onClick={onClose}
                   className="flex-1"
                   disabled={isSubmitting}
                 >
                   Cancel
                 </Button>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="flex-1 bg-blue-600 hover:bg-blue-700"
                   disabled={isSubmitting || !selectedFile}
                 >
@@ -306,18 +332,20 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
               </div>
 
               {/* Status Messages */}
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <div className="bg-green-50 border border-green-200 rounded-md p-4">
                   <p className="text-green-800 font-medium">
-                    ✅ Resume submitted successfully! We'll review your profile and get back to you soon.
+                    ✅ Resume submitted successfully! We'll review your profile
+                    and get back to you soon.
                   </p>
                 </div>
               )}
-              
-              {submitStatus === 'error' && (
+
+              {submitStatus === "error" && (
                 <div className="bg-red-50 border border-red-200 rounded-md p-4">
                   <p className="text-red-800">
-                    ❌ Sorry, there was an error submitting your resume. Please try again.
+                    ❌ Sorry, there was an error submitting your resume. Please
+                    try again.
                   </p>
                 </div>
               )}
