@@ -1157,14 +1157,20 @@ useEffect(() => {
       </footer>
 
       {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/919971019767" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919971019767"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50"
       >
         <MessageCircle size={24} />
       </a>
+
+      {/* Get Quote Modal */}
+      <GetQuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+      />
     </div>
   );
 }
