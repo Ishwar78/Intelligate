@@ -67,18 +67,34 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      // Here you would typically send the form data to your backend
-      // For now, we'll simulate a submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      // Send form data to the backend email API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          message: `Get Quote Request:\n\n${formData.message}`
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send request');
+      }
+
+      const result = await response.json();
+
       // Reset form and close modal on success
       setFormData({
         fullName: "",
@@ -87,13 +103,13 @@ export default function GetQuoteModal({ isOpen, onClose }: GetQuoteModalProps) {
         message: ""
       });
       onClose();
-      
-      // You could show a success toast here
-      alert("Thank you! Your request has been submitted successfully. We'll get back to you soon.");
-      
+
+      // Show success message
+      alert("Thank you! Your quote request has been submitted successfully. We'll get back to you soon.");
+
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("There was an error submitting your request. Please try again.");
+      alert("There was an error submitting your request. Please try again or contact us directly.");
     } finally {
       setIsSubmitting(false);
     }
