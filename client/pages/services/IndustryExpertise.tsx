@@ -136,22 +136,19 @@ export default function IndustryExpertise() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {industries.map((industry, index) => {
-              const Icon = industry.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {companies.map((company, index) => {
               return (
                 <Card
                   key={index}
                   className="professional-card animate-on-scroll hover:shadow-xl transition-all duration-300 group"
                 >
                   <CardContent className="p-6 text-center">
-                    <div
-                      className={`w-16 h-16 rounded-full bg-${industry.color}-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon className={`h-8 w-8 text-${industry.color}-600`} />
+                    <div className={`w-16 h-16 rounded-full bg-${company.color}-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <Building className={`h-8 w-8 text-${company.color}-600`} />
                     </div>
                     <h3 className="font-bold text-gray-900 text-lg">
-                      {industry.name}
+                      {company.name}
                     </h3>
                   </CardContent>
                 </Card>
