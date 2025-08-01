@@ -228,23 +228,6 @@ Resume file: ${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="phone" className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" />
-                  Phone Number *
-                </Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="mt-1"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-
               {/* File Upload */}
               <div>
                 <Label className="flex items-center gap-2 mb-2">
