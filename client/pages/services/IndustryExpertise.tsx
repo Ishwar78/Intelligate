@@ -24,6 +24,9 @@ import {
   Users,
   Target,
   CheckCircle,
+  Search,
+  GraduationCap,
+  Users2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
