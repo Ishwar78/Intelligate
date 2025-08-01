@@ -34,15 +34,19 @@ import HeroSlider from "@/components/HeroSlider";
 import Header from "@/components/Header";
 
 export default function IndustryExpertise() {
-  const industries = [
-    { name: "ITES & BPO", icon: Cpu, color: "blue" },
-    { name: "FMCG", icon: Home, color: "green" },
-    { name: "Engineering", icon: Factory, color: "orange" },
-    { name: "Pharmaceuticals", icon: Pill, color: "purple" },
-    { name: "Automotive", icon: Car, color: "red" },
-    { name: "Energy", icon: Zap, color: "yellow" },
-    { name: "Manufacturing", icon: Truck, color: "gray" },
-    { name: "Real Estate", icon: Building, color: "indigo" },
+  const companies = [
+    { name: "Wipro", color: "blue" },
+    { name: "Teleperformance", color: "green" },
+    { name: "Telus", color: "orange" },
+    { name: "Concentrix", color: "purple" },
+    { name: "Cognizant Technology Solutions", color: "red" },
+    { name: "Aisin Automotive", color: "yellow" },
+    { name: "Toyota Group", color: "gray" },
+    { name: "FCC Clutch", color: "indigo" },
+    { name: "Satyam Auto Components", color: "blue" },
+    { name: "Agratas Energy Storage Solutions", color: "green" },
+    { name: "Tata Enterprises", color: "orange" },
+    { name: "Krishna Group (Krishna Maruti Limited & SKH)", color: "purple" },
   ];
 
   const successStories = [
