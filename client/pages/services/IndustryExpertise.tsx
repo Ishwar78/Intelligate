@@ -157,6 +157,127 @@ export default function IndustryExpertise() {
         </div>
       </section>
 
+      {/* Core Services */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Core Services</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <Search className="h-12 w-12 text-blue-900 mb-4 float-animation" />
+                <CardTitle className="text-xl">Executive Search</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Premium talent acquisition for C-suite and senior leadership positions across industries. We identify and attract top-tier executives who drive organizational success.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <Target className="h-12 w-12 text-red-600 mb-4 float-animation" />
+                <CardTitle className="text-xl">Strategic Leadership Hiring</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Specialized recruitment for strategic roles that shape business direction. We find leaders who align with your vision and drive transformational change.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <Users className="h-12 w-12 text-green-600 mb-4 float-animation" />
+                <CardTitle className="text-xl">Lateral Hiring</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Strategic mid-level recruitment for experienced professionals looking to advance their careers while filling critical skill gaps in your organization.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <Building className="h-12 w-12 text-purple-600 mb-4 float-animation" />
+                <CardTitle className="text-xl">Bulk Hiring</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Large-scale recruitment solutions for rapid expansion or project-based requirements. Efficient processes ensuring quality at scale.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <GraduationCap className="h-12 w-12 text-orange-600 mb-4 float-animation" />
+                <CardTitle className="text-xl">Campus Placement</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Fresh talent sourcing from premier institutions. We help you build strong relationships with top colleges and identify promising graduates.
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="professional-card animate-on-scroll">
+              <CardHeader>
+                <Users2 className="h-12 w-12 text-teal-600 mb-4 float-animation" />
+                <CardTitle className="text-xl">Diversity Sourcing</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-700">
+                  Building inclusive teams through targeted diversity recruitment. We help create balanced workforces that drive innovation and growth.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Research & Training Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-on-scroll">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F0e6778a20c8e4b48b262fa9e73efbb9f?format=webp&width=800"
+                alt="Training and Development"
+                className="rounded-lg shadow-xl w-full h-96 object-cover"
+              />
+            </div>
+            <div className="animate-on-scroll">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Research & Training Excellence</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                We work closely with stakeholders to analyze job descriptions and find perfect fits. Our comprehensive approach ensures we understand both technical requirements and cultural alignment.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                We also run specialized training sessions across premier colleges in Dehradun, Rohtak, Kanpur, and Lucknow, developing talent that meets industry standards and expectations.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-gray-800 font-medium">Detailed JD analysis and stakeholder consultation</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-gray-800 font-medium">Customized training programs across multiple cities</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                  <span className="text-gray-800 font-medium">Industry-aligned skill development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Success Stories */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
