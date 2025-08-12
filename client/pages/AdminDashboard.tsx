@@ -157,9 +157,12 @@ export default function AdminDashboard() {
         setJobs(jobsData);
       } else if (response.status === 401) {
         navigate("/admin/login");
+      } else {
+        setError(`Failed to fetch jobs: ${response.status} ${response.statusText}`);
       }
     } catch (err) {
-      setError("Failed to fetch jobs");
+      console.error("Error fetching jobs:", err);
+      setError("Network error: Unable to connect to server. Please try again.");
     } finally {
       setLoading(false);
     }
