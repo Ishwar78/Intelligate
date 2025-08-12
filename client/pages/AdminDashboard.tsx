@@ -153,6 +153,11 @@ export default function AdminDashboard() {
 
   const getAuthHeaders = () => {
     const token = localStorage.getItem("adminToken");
+    if (!token) {
+      console.warn("No admin token found");
+      navigate("/admin/login");
+      return {};
+    }
     return {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
