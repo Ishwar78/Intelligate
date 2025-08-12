@@ -26,6 +26,7 @@ import ServiceDropdown from "@/components/ServiceDropdown";
 import GetQuoteModal from "@/components/GetQuoteModal";
 import HomepageModal from "@/components/HomepageModal";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 interface Job {
   _id: string;
   title: string;
