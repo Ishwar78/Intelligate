@@ -89,7 +89,8 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to send request');
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `Server error: ${response.status}`);
       }
 
       const result = await response.json();
