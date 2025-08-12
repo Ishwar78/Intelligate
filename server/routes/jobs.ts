@@ -15,18 +15,13 @@ async function connectToMongoDB() {
   return client.db(DB_NAME);
 }
 
-// Email configuration
+// Email configuration - Using Gmail as SMTP service
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com', // Use Gmail SMTP as relay
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
-    user: "admin@intelligatesolution.com",
-    pass: "qnztrxfqhpxgrlff",
+    user: "sharmaishwar970@gmail.com", // Gmail account for sending
+    pass: "jhgc mraj kcrg flgj", // Gmail app password
   },
-  tls: {
-    rejectUnauthorized: false
-  }
 });
 
 // Get all job openings
