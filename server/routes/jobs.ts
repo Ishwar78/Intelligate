@@ -15,12 +15,17 @@ async function connectToMongoDB() {
   return client.db(DB_NAME);
 }
 
-// Email configuration
+// Email configuration - Outlook SMTP for admin@intelligatesolution.com
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.office365.com",
+  port: 587,
+  secure: false,
   auth: {
-    user: "sharmaishwar970@gmail.com",
-    pass: "jhgc mraj kcrg flgj",
+    user: "admin@intelligatesolution.com",
+    pass: "qnztrxfqhpxgrlff",
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 });
 
@@ -212,7 +217,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
             <tr>
               <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: bold;">Resume:</td>
               <td style="padding: 10px; border-bottom: 1px solid #e5e7eb;">
-                📎 ${filename} (Attached)
+                ���� ${filename} (Attached)
               </td>
             </tr>
             <tr>
@@ -243,8 +248,8 @@ export const submitApplication: RequestHandler = async (req, res) => {
     // Send email to admin
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions Jobs" <sharmaishwar970@gmail.com>',
-        to: "sharmaishwar970@gmail.com",
+        from: '"Intelligate Solutions Jobs" <admin@intelligatesolution.com>',
+        to: "admin@intelligatesolution.com",
         subject: emailSubject,
         html: adminEmailContent,
         attachments: [
@@ -311,7 +316,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
 
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions" <sharmaishwar970@gmail.com>',
+        from: '"Intelligate Solutions" <admin@intelligatesolution.com>',
         to: email,
         subject: `Application Received - ${job.title} at Intelligate Solutions`,
         html: candidateEmailContent,
