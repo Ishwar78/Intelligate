@@ -31,7 +31,7 @@
 
 ## ✅ **3. Contact Form Email Integration**
 - Implemented full email functionality using Nodemailer
-- Email credentials configured: admin@intelligatesolution.com
+- Email credentials configured: admin@intelligatesolution.com (Outlook SMTP)
 - **Features:**
   - Admin notification email with contact details
   - Auto-reply email to user with confirmation
