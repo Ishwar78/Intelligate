@@ -178,6 +178,8 @@ export const submitApplication: RequestHandler = async (req, res) => {
       .collection("job_applications")
       .insertOne(application);
 
+    console.log("Application saved with ID:", result.insertedId);
+
     // Send email notification to admin
     const base64Data = resume.split(",")[1]; // Remove data:type;base64, prefix
     const fileExtension = resume.includes("pdf") ? "pdf" : "doc";
