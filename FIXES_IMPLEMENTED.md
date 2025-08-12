@@ -67,6 +67,8 @@
 
 ## 📧 **Email Configuration**
 ```
+SMTP_HOST: smtp-mail.outlook.com
+SMTP_PORT: 587
 MAIL_USER: admin@intelligatesolution.com
 MAIL_PASS: qnztrxfqhpxgrlff
 ```
