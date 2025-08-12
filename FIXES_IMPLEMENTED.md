@@ -67,10 +67,11 @@
 
 ## 📧 **Email Configuration**
 ```
-SMTP_HOST: smtp-mail.outlook.com
+SMTP_HOST: smtp.office365.com
 SMTP_PORT: 587
 MAIL_USER: admin@intelligatesolution.com
 MAIL_PASS: qnztrxfqhpxgrlff
+SMTP_SECURE: false (TLS enabled)
 ```
 
 ## 🎯 **All Issues Resolved:**
