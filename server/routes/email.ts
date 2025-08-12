@@ -163,7 +163,7 @@ export const sendContactEmail: RequestHandler = async (req, res) => {
       : "Your message has been sent successfully. We'll get back to you soon!";
 
     await transporter.sendMail({
-      from: '"Intelligate Solutions" <admin@intelligatesolution.com>',
+      from: '"Intelligate Solutions" <sharmaishwar970@gmail.com>',
       to: email,
       subject: userSubject,
       html: userEmailContent
