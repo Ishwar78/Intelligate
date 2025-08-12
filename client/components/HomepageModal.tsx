@@ -14,21 +14,21 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
     name: "",
     email: "",
     mobile: "",
-    subject: ""
+    subject: "",
   });
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     mobile: "",
-    subject: ""
+    subject: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field as keyof typeof errors]) {
-      setErrors(prev => ({ ...prev, [field]: "" }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
   };
 
@@ -37,7 +37,7 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
       name: "",
       email: "",
       mobile: "",
-      subject: ""
+      subject: "",
     };
 
     if (!formData.name.trim()) {
@@ -61,31 +61,31 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
     }
 
     setErrors(newErrors);
-    return !Object.values(newErrors).some(error => error !== "");
+    return !Object.values(newErrors).some((error) => error !== "");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       // Send form data to the backend email API
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           fullName: formData.name,
           email: formData.email,
           phone: formData.mobile,
-          message: `Subject: ${formData.subject}\n\nThank you for your interest in Intelligate Solutions. We look forward to discussing your requirements.`
-        })
+          message: `Subject: ${formData.subject}\n\nThank you for your interest in Intelligate Solutions. We look forward to discussing your requirements.`,
+        }),
       });
 
       if (!response.ok) {
@@ -94,29 +94,31 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
           const errorData = await response.json();
           errorMessage = errorData.error || errorMessage;
         } catch (parseError) {
-          console.error('Error parsing server response:', parseError);
+          console.error("Error parsing server response:", parseError);
         }
         throw new Error(errorMessage);
       }
 
       const result = await response.json();
-      
+
       // Reset form and close modal on success
       setFormData({
         name: "",
         email: "",
         mobile: "",
-        subject: ""
+        subject: "",
       });
       onClose();
-      
+
       // Show success message
       alert("Thank you for your interest! We'll get back to you soon.");
-      
     } catch (error) {
       console.error("Form submission error:", error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      alert(`Sorry, there was an issue sending your message: ${errorMessage}. Please try again or contact us directly at +91 9971019767.`);
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      alert(
+        `Sorry, there was an issue sending your message: ${errorMessage}. Please try again or contact us directly at +91 9971019767.`,
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -131,14 +133,16 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
       <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Modal Header */}
         <div className="flex items-center justify-between p-6 border-b">
-          <h2 className="text-2xl font-bold text-gray-900 text-center flex-1">Welcome to Intelligate Solutions!</h2>
+          <h2 className="text-2xl font-bold text-gray-900 text-center flex-1">
+            Welcome to Intelligate Solutions!
+          </h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors p-1"
@@ -151,13 +155,17 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
         {/* Modal Body */}
         <div className="p-6">
           <p className="text-gray-600 mb-6 text-center">
-            Get connected with our recruitment experts. Share your details and we'll reach out to you.
+            Get connected with our recruitment experts. Share your details and
+            we'll reach out to you.
           </p>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name */}
             <div>
-              <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2 block">
+              <Label
+                htmlFor="name"
+                className="text-sm font-medium text-gray-700 mb-2 block"
+              >
                 Name *
               </Label>
               <Input
@@ -165,7 +173,7 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className={`w-full ${errors.name ? 'border-red-500' : ''}`}
+                className={`w-full ${errors.name ? "border-red-500" : ""}`}
                 placeholder="Enter your name"
               />
               {errors.name && (
@@ -175,7 +183,10 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
 
             {/* Email */}
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
+              <Label
+                htmlFor="email"
+                className="text-sm font-medium text-gray-700 mb-2 block"
+              >
                 Email *
               </Label>
               <Input
@@ -183,7 +194,7 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className={`w-full ${errors.email ? 'border-red-500' : ''}`}
+                className={`w-full ${errors.email ? "border-red-500" : ""}`}
                 placeholder="Enter your email address"
               />
               {errors.email && (
@@ -193,7 +204,10 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
 
             {/* Mobile */}
             <div>
-              <Label htmlFor="mobile" className="text-sm font-medium text-gray-700 mb-2 block">
+              <Label
+                htmlFor="mobile"
+                className="text-sm font-medium text-gray-700 mb-2 block"
+              >
                 Mobile Number *
               </Label>
               <Input
@@ -201,7 +215,7 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
                 type="tel"
                 value={formData.mobile}
                 onChange={(e) => handleInputChange("mobile", e.target.value)}
-                className={`w-full ${errors.mobile ? 'border-red-500' : ''}`}
+                className={`w-full ${errors.mobile ? "border-red-500" : ""}`}
                 placeholder="Enter your mobile number"
               />
               {errors.mobile && (
@@ -211,7 +225,10 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
 
             {/* Subject */}
             <div>
-              <Label htmlFor="subject" className="text-sm font-medium text-gray-700 mb-2 block">
+              <Label
+                htmlFor="subject"
+                className="text-sm font-medium text-gray-700 mb-2 block"
+              >
                 Subject *
               </Label>
               <Input
@@ -219,7 +236,7 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
                 type="text"
                 value={formData.subject}
                 onChange={(e) => handleInputChange("subject", e.target.value)}
-                className={`w-full ${errors.subject ? 'border-red-500' : ''}`}
+                className={`w-full ${errors.subject ? "border-red-500" : ""}`}
                 placeholder="What can we help you with?"
               />
               {errors.subject && (

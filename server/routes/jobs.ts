@@ -17,16 +17,16 @@ async function connectToMongoDB() {
 
 // Email configuration - Outlook SMTP for admin@intelligatesolution.com
 const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com',
+  host: "smtp.office365.com",
   port: 587,
   secure: false,
   auth: {
-    user: 'admin@intelligatesolution.com',
-    pass: 'qnztrxfqhpxgrlff'
+    user: "admin@intelligatesolution.com",
+    pass: "qnztrxfqhpxgrlff",
   },
   tls: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
 
 // Get all job openings
