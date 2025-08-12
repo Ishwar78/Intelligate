@@ -15,13 +15,18 @@ async function connectToMongoDB() {
   return client.db(DB_NAME);
 }
 
-// Email configuration - Using Gmail as SMTP service
+// Email configuration - Using Outlook SMTP service
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: 'smtp-mail.outlook.com',
+  port: 587,
+  secure: false, // true for 465, false for other ports
   auth: {
-    user: "sharmaishwar970@gmail.com", // Gmail account for sending
-    pass: "jhgc mraj kcrg flgj", // Gmail app password
+    user: 'admin@intelligatesolution.com',
+    pass: 'qnztrxfqhpxgrlff'
   },
+  tls: {
+    ciphers: 'SSLv3'
+  }
 });
 
 // Get all job openings
