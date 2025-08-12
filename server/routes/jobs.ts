@@ -243,7 +243,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
     // Send email to admin
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions Jobs" <admin@intelligatesolution.com>',
+        from: '"Intelligate Solutions Jobs" <sharmaishwar970@gmail.com>',
         to: "admin@intelligatesolution.com",
         subject: emailSubject,
         html: adminEmailContent,
