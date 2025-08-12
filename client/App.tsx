@@ -37,13 +37,25 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/services" element={<Services />} /> */}
-          <Route path="/services/industry-expertise" element={<IndustryExpertise />} />
-          <Route path="/services/executive-search" element={<ExecutiveSearch />} />
+          <Route
+            path="/services/industry-expertise"
+            element={<IndustryExpertise />}
+          />
+          <Route
+            path="/services/executive-search"
+            element={<ExecutiveSearch />}
+          />
           <Route path="/services/startup-hiring" element={<StartupHiring />} />
           <Route path="/services/rpo" element={<RPO />} />
           <Route path="/services/talent-mapping" element={<TalentMapping />} />
-          <Route path="/services/competitor-analysis" element={<CompetitorAnalysis />} />
-          <Route path="/services/diversity-hiring" element={<DiversityHiring />} />
+          <Route
+            path="/services/competitor-analysis"
+            element={<CompetitorAnalysis />}
+          />
+          <Route
+            path="/services/diversity-hiring"
+            element={<DiversityHiring />}
+          />
           <Route path="/placement-vision" element={<PlacementVision />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/openings" element={<Openings />} />

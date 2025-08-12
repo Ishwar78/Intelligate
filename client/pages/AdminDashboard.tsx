@@ -176,7 +176,9 @@ export default function AdminDashboard() {
       } else if (response.status === 401) {
         navigate("/admin/login");
       } else {
-        setError(`Failed to fetch jobs: ${response.status} ${response.statusText}`);
+        setError(
+          `Failed to fetch jobs: ${response.status} ${response.statusText}`,
+        );
       }
     } catch (err) {
       console.error("Error fetching jobs:", err);
@@ -203,7 +205,9 @@ export default function AdminDashboard() {
         console.warn("Unauthorized access to applications");
         navigate("/admin/login");
       } else {
-        console.error(`Failed to fetch applications: ${response.status} ${response.statusText}`);
+        console.error(
+          `Failed to fetch applications: ${response.status} ${response.statusText}`,
+        );
       }
     } catch (err) {
       console.error("Network error fetching applications:", err);
@@ -455,7 +459,9 @@ export default function AdminDashboard() {
                   disabled={applicationsLoading}
                   className="h-6 w-6 p-0"
                 >
-                  <RefreshCw className={`h-3 w-3 ${applicationsLoading ? 'animate-spin' : ''}`} />
+                  <RefreshCw
+                    className={`h-3 w-3 ${applicationsLoading ? "animate-spin" : ""}`}
+                  />
                 </Button>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -493,7 +499,9 @@ export default function AdminDashboard() {
             <div className="flex justify-between items-center">
               <div>
                 <CardTitle>Recent Applications</CardTitle>
-                <CardDescription>Latest job applications received</CardDescription>
+                <CardDescription>
+                  Latest job applications received
+                </CardDescription>
               </div>
               <Button
                 onClick={() => setIsApplicationsModalOpen(true)}
@@ -896,7 +904,10 @@ export default function AdminDashboard() {
       </Dialog>
 
       {/* Applications View Modal */}
-      <Dialog open={isApplicationsModalOpen} onOpenChange={setIsApplicationsModalOpen}>
+      <Dialog
+        open={isApplicationsModalOpen}
+        onOpenChange={setIsApplicationsModalOpen}
+      >
         <DialogContent className="sm:max-w-[1000px] max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>All Job Applications</DialogTitle>
@@ -928,28 +939,45 @@ export default function AdminDashboard() {
                         </TableCell>
                         <TableCell>
                           <div>
-                            <div className="font-medium">{app.job?.title || "N/A"}</div>
-                            <div className="text-sm text-gray-500">{app.job?.industry || ""}</div>
+                            <div className="font-medium">
+                              {app.job?.title || "N/A"}
+                            </div>
+                            <div className="text-sm text-gray-500">
+                              {app.job?.industry || ""}
+                            </div>
                           </div>
                         </TableCell>
                         <TableCell>
-                          <a href={`mailto:${app.email}`} className="text-blue-600 hover:underline">
+                          <a
+                            href={`mailto:${app.email}`}
+                            className="text-blue-600 hover:underline"
+                          >
                             {app.email}
                           </a>
                         </TableCell>
                         <TableCell>
-                          <a href={`tel:${app.phone}`} className="text-blue-600 hover:underline">
+                          <a
+                            href={`tel:${app.phone}`}
+                            className="text-blue-600 hover:underline"
+                          >
                             {app.phone}
                           </a>
                         </TableCell>
                         <TableCell>
                           <div>
-                            <div>{new Date(app.submittedAt).toLocaleDateString("en-IN")}</div>
+                            <div>
+                              {new Date(app.submittedAt).toLocaleDateString(
+                                "en-IN",
+                              )}
+                            </div>
                             <div className="text-sm text-gray-500">
-                              {new Date(app.submittedAt).toLocaleTimeString("en-IN", {
-                                hour: "2-digit",
-                                minute: "2-digit"
-                              })}
+                              {new Date(app.submittedAt).toLocaleTimeString(
+                                "en-IN",
+                                {
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                },
+                              )}
                             </div>
                           </div>
                         </TableCell>
@@ -962,9 +990,7 @@ export default function AdminDashboard() {
                             {app.status}
                           </Badge>
                         </TableCell>
-                        <TableCell>
-                          {app.job?.location || "N/A"}
-                        </TableCell>
+                        <TableCell>{app.job?.location || "N/A"}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -973,9 +999,12 @@ export default function AdminDashboard() {
             ) : (
               <div className="text-center py-12">
                 <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">No Applications Yet</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  No Applications Yet
+                </h3>
                 <p className="text-gray-500">
-                  When candidates apply for your job postings, they will appear here.
+                  When candidates apply for your job postings, they will appear
+                  here.
                 </p>
               </div>
             )}
@@ -994,11 +1023,15 @@ export default function AdminDashboard() {
                 type="button"
                 className="bg-blue-900 hover:bg-blue-800"
                 onClick={() => {
-                  const csvContent = "data:text/csv;charset=utf-8," +
+                  const csvContent =
+                    "data:text/csv;charset=utf-8," +
                     "Name,Position,Email,Phone,Applied On,Status,Location\n" +
-                    applications.map(app =>
-                      `"${app.fullName}","${app.job?.title || 'N/A'}","${app.email}","${app.phone}","${new Date(app.submittedAt).toLocaleDateString('en-IN')}","${app.status}","${app.job?.location || 'N/A'}"`
-                    ).join("\n");
+                    applications
+                      .map(
+                        (app) =>
+                          `"${app.fullName}","${app.job?.title || "N/A"}","${app.email}","${app.phone}","${new Date(app.submittedAt).toLocaleDateString("en-IN")}","${app.status}","${app.job?.location || "N/A"}"`,
+                      )
+                      .join("\n");
                   const encodedUri = encodeURI(csvContent);
                   const link = document.createElement("a");
                   link.setAttribute("href", encodedUri);
