@@ -167,22 +167,15 @@ export default function AdminDashboard() {
 
   const fetchApplications = async () => {
     try {
-      console.log("Fetching applications with headers:", getAuthHeaders());
       const response = await fetch("/api/applications", {
         headers: getAuthHeaders(),
       });
-      console.log("Applications response status:", response.status);
       if (response.ok) {
         const appsData = await response.json();
-        console.log("Applications data:", appsData);
         setApplications(appsData);
-      } else {
-        console.error("Failed to fetch applications - status:", response.status);
-        const errorText = await response.text();
-        console.error("Error response:", errorText);
       }
     } catch (err) {
-      console.error("Failed to fetch applications", err);
+      console.error("Failed to fetch applications");
     }
   };
 
