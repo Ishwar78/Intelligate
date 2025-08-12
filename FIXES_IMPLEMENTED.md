@@ -31,7 +31,7 @@
 
 ## ✅ **3. Contact Form Email Integration**
 - Implemented full email functionality using Nodemailer
-- Email credentials configured: sharmaishwar970@gmail.com
+- Email credentials configured: admin@intelligatesolution.com
 - **Features:**
   - Admin notification email with contact details
   - Auto-reply email to user with confirmation
@@ -67,8 +67,8 @@
 
 ## 📧 **Email Configuration**
 ```
-MAIL_USER: sharmaishwar970@gmail.com
-MAIL_PASS: zwqwlqcllrhkusjk
+MAIL_USER: admin@intelligatesolution.com
+MAIL_PASS: qnztrxfqhpxgrlff
 ```
 
 ## 🎯 **All Issues Resolved:**
