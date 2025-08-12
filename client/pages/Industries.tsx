@@ -1,14 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  MessageCircle, 
-  Users, 
-  Target, 
-  Briefcase, 
-  GraduationCap, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Users,
+  Target,
+  Briefcase,
+  GraduationCap,
   Users2,
   Search,
   Building,
@@ -20,7 +26,7 @@ import {
   Truck,
   Factory,
   Monitor,
-  Cog
+  Cog,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -35,29 +41,26 @@ export default function Industries() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(el => observer.observe(el));
+    const animateElements = document.querySelectorAll(".animate-on-scroll");
+    animateElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-
-
-<Header />
-
+      <Header />
 
       {/* Header */}
       {/* <header className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -174,12 +177,7 @@ export default function Industries() {
       {/* Hero Section with Slider */}
       <section className="relative text-white">
         <HeroSlider
-          images={[
-"images/img.jpg",
-"images/ind.webp"
-
-
-          ]}
+          images={["images/img.jpg", "images/ind.webp"]}
           height="h-[500px]"
         />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -198,12 +196,15 @@ export default function Industries() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Our Industry Expertise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Our Industry Expertise
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              With decades of experience across diverse sectors, we understand the unique talent requirements of each industry
+              With decades of experience across diverse sectors, we understand
+              the unique talent requirements of each industry
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
@@ -212,11 +213,12 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Leading provider of technology talent for India's IT services and business process outsourcing sector
+                  Leading provider of technology talent for India's IT services
+                  and business process outsourcing sector
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Car className="h-16 w-16 text-red-600 mx-auto mb-4 float-animation" />
@@ -224,35 +226,42 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Trusted partner in automotive leadership roles, from manufacturing to electric vehicle innovation
+                  Trusted partner in automotive leadership roles, from
+                  manufacturing to electric vehicle innovation
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Factory className="h-16 w-16 text-green-600 mx-auto mb-4 float-animation" />
-                <CardTitle className="text-xl">Engineering & Manufacturing</CardTitle>
+                <CardTitle className="text-xl">
+                  Engineering & Manufacturing
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Expert recruitment for precision engineering and advanced manufacturing operations
+                  Expert recruitment for precision engineering and advanced
+                  manufacturing operations
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Zap className="h-16 w-16 text-yellow-600 mx-auto mb-4 float-animation" />
-                <CardTitle className="text-xl">Electrical & Electronics</CardTitle>
+                <CardTitle className="text-xl">
+                  Electrical & Electronics
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Specialized talent acquisition for electrical systems and electronic component manufacturing
+                  Specialized talent acquisition for electrical systems and
+                  electronic component manufacturing
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Truck className="h-16 w-16 text-gray-600 mx-auto mb-4 float-animation" />
@@ -260,11 +269,12 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Deep expertise in tire manufacturing and automotive rubber product development
+                  Deep expertise in tire manufacturing and automotive rubber
+                  product development
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Cog className="h-16 w-16 text-orange-600 mx-auto mb-4 float-animation" />
@@ -272,11 +282,12 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Renewable energy and traditional power sector talent solutions for sustainable growth
+                  Renewable energy and traditional power sector talent solutions
+                  for sustainable growth
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Pill className="h-16 w-16 text-purple-600 mx-auto mb-4 float-animation" />
@@ -284,11 +295,12 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Healthcare and pharmaceutical industry recruitment from research to commercial operations
+                  Healthcare and pharmaceutical industry recruitment from
+                  research to commercial operations
                 </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll text-center hover:shadow-xl transition-all duration-300">
               <CardHeader className="pb-4">
                 <Building className="h-16 w-16 text-teal-600 mx-auto mb-4 float-animation" />
@@ -296,7 +308,8 @@ export default function Industries() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Property development and real estate management professionals across residential and commercial sectors
+                  Property development and real estate management professionals
+                  across residential and commercial sectors
                 </CardDescription>
               </CardContent>
             </Card>
@@ -308,43 +321,61 @@ export default function Industries() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Industry Success Stories</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Industry Success Stories
+            </h2>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="professional-card animate-on-scroll">
               <CardHeader>
-                <CardTitle className="text-xl text-blue-900">Automotive Excellence</CardTitle>
+                <CardTitle className="text-xl text-blue-900">
+                  Automotive Excellence
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 mb-4">
-                  Successfully placed 50+ senior executives in India's leading automotive companies, including EV startups and traditional manufacturers.
+                  Successfully placed 50+ senior executives in India's leading
+                  automotive companies, including EV startups and traditional
+                  manufacturers.
                 </p>
-                <div className="text-sm text-blue-600 font-medium">25+ years automotive expertise</div>
+                <div className="text-sm text-blue-600 font-medium">
+                  25+ years automotive expertise
+                </div>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll">
               <CardHeader>
-                <CardTitle className="text-xl text-green-900">Manufacturing Growth</CardTitle>
+                <CardTitle className="text-xl text-green-900">
+                  Manufacturing Growth
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 mb-4">
-                  Enabled rapid scaling for manufacturing units across India with strategic talent acquisition and bulk hiring solutions.
+                  Enabled rapid scaling for manufacturing units across India
+                  with strategic talent acquisition and bulk hiring solutions.
                 </p>
-                <div className="text-sm text-green-600 font-medium">500+ placements annually</div>
+                <div className="text-sm text-green-600 font-medium">
+                  500+ placements annually
+                </div>
               </CardContent>
             </Card>
-            
+
             <Card className="professional-card animate-on-scroll">
               <CardHeader>
-                <CardTitle className="text-xl text-purple-900">IT & Tech Innovation</CardTitle>
+                <CardTitle className="text-xl text-purple-900">
+                  IT & Tech Innovation
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 mb-4">
-                  Partnered with leading IT companies for digital transformation initiatives and emerging technology implementations.
+                  Partnered with leading IT companies for digital transformation
+                  initiatives and emerging technology implementations.
                 </p>
-                <div className="text-sm text-purple-600 font-medium">Tech leadership focus</div>
+                <div className="text-sm text-purple-600 font-medium">
+                  Tech leadership focus
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -355,18 +386,28 @@ export default function Industries() {
       <section className="py-20 bg-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-on-scroll">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Find Industry-Specific Talent?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Find Industry-Specific Talent?
+            </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-              Let our industry experts help you find the perfect candidates who understand your sector's unique challenges and opportunities.
+              Let our industry experts help you find the perfect candidates who
+              understand your sector's unique challenges and opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-3">
+                <Button
+                  size="lg"
+                  className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-3"
+                >
                   Discuss Your Needs
                 </Button>
               </Link>
               <Link to="/openings">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3"
+                >
                   View Current Openings
                 </Button>
               </Link>
@@ -378,9 +419,9 @@ export default function Industries() {
       <Footer />
 
       {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/919971019767" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919971019767"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50"
       >

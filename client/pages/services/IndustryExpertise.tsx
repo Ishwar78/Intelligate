@@ -104,10 +104,7 @@ export default function IndustryExpertise() {
       {/* Hero Section with Slider */}
       <section className="relative text-white">
         <HeroSlider
-          images={[
-  "/images/img.jpg",
-"/images/ind.webp"
-          ]}
+          images={["/images/img.jpg", "/images/ind.webp"]}
           height="h-[500px]"
         />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -132,8 +129,9 @@ export default function IndustryExpertise() {
               Our Trusted Clients
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              We are proud to serve leading companies across multiple industries,
-              delivering exceptional talent solutions that drive business success
+              We are proud to serve leading companies across multiple
+              industries, delivering exceptional talent solutions that drive
+              business success
             </p>
           </div>
 
@@ -145,8 +143,12 @@ export default function IndustryExpertise() {
                   className="professional-card animate-on-scroll hover:shadow-xl transition-all duration-300 group"
                 >
                   <CardContent className="p-6 text-center">
-                    <div className={`w-16 h-16 rounded-full bg-${company.color}-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <Building className={`h-8 w-8 text-${company.color}-600`} />
+                    <div
+                      className={`w-16 h-16 rounded-full bg-${company.color}-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Building
+                        className={`h-8 w-8 text-${company.color}-600`}
+                      />
                     </div>
                     <h3 className="font-bold text-gray-900 text-lg">
                       {company.name}
@@ -163,7 +165,9 @@ export default function IndustryExpertise() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Core Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Core Services
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -174,7 +178,9 @@ export default function IndustryExpertise() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Premium talent acquisition for C-suite and senior leadership positions across industries. We identify and attract top-tier executives who drive organizational success.
+                  Premium talent acquisition for C-suite and senior leadership
+                  positions across industries. We identify and attract top-tier
+                  executives who drive organizational success.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -182,11 +188,15 @@ export default function IndustryExpertise() {
             <Card className="professional-card animate-on-scroll">
               <CardHeader>
                 <Target className="h-12 w-12 text-red-600 mb-4 float-animation" />
-                <CardTitle className="text-xl">Strategic Leadership Hiring</CardTitle>
+                <CardTitle className="text-xl">
+                  Strategic Leadership Hiring
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Specialized recruitment for strategic roles that shape business direction. We find leaders who align with your vision and drive transformational change.
+                  Specialized recruitment for strategic roles that shape
+                  business direction. We find leaders who align with your vision
+                  and drive transformational change.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -198,7 +208,9 @@ export default function IndustryExpertise() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Strategic mid-level recruitment for experienced professionals looking to advance their careers while filling critical skill gaps in your organization.
+                  Strategic mid-level recruitment for experienced professionals
+                  looking to advance their careers while filling critical skill
+                  gaps in your organization.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -210,7 +222,9 @@ export default function IndustryExpertise() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Large-scale recruitment solutions for rapid expansion or project-based requirements. Efficient processes ensuring quality at scale.
+                  Large-scale recruitment solutions for rapid expansion or
+                  project-based requirements. Efficient processes ensuring
+                  quality at scale.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -222,7 +236,9 @@ export default function IndustryExpertise() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Fresh talent sourcing from premier institutions. We help you build strong relationships with top colleges and identify promising graduates.
+                  Fresh talent sourcing from premier institutions. We help you
+                  build strong relationships with top colleges and identify
+                  promising graduates.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -234,7 +250,9 @@ export default function IndustryExpertise() {
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-gray-700">
-                  Building inclusive teams through targeted diversity recruitment. We help create balanced workforces that drive innovation and growth.
+                  Building inclusive teams through targeted diversity
+                  recruitment. We help create balanced workforces that drive
+                  innovation and growth.
                 </CardDescription>
               </CardContent>
             </Card>
@@ -254,25 +272,37 @@ export default function IndustryExpertise() {
               />
             </div>
             <div className="animate-on-scroll">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Research & Training Excellence</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Research & Training Excellence
+              </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                We work closely with stakeholders to analyze job descriptions and find perfect fits. Our comprehensive approach ensures we understand both technical requirements and cultural alignment.
+                We work closely with stakeholders to analyze job descriptions
+                and find perfect fits. Our comprehensive approach ensures we
+                understand both technical requirements and cultural alignment.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                We also run specialized training sessions across premier colleges in Dehradun, Rohtak, Kanpur, and Lucknow, developing talent that meets industry standards and expectations.
+                We also run specialized training sessions across premier
+                colleges in Dehradun, Rohtak, Kanpur, and Lucknow, developing
+                talent that meets industry standards and expectations.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-800 font-medium">Detailed JD analysis and stakeholder consultation</span>
+                  <span className="text-gray-800 font-medium">
+                    Detailed JD analysis and stakeholder consultation
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-800 font-medium">Customized training programs across multiple cities</span>
+                  <span className="text-gray-800 font-medium">
+                    Customized training programs across multiple cities
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                  <span className="text-gray-800 font-medium">Industry-aligned skill development</span>
+                  <span className="text-gray-800 font-medium">
+                    Industry-aligned skill development
+                  </span>
                 </div>
               </div>
             </div>

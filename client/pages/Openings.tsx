@@ -150,12 +150,7 @@ export default function Openings() {
       {/* Hero Section with Slider */}
       <section className="relative text-white">
         <HeroSlider
-          images={[
-
-"images/current1.avif",
-"images/current.jpg"
-
-          ]}
+          images={["images/current1.avif", "images/current.jpg"]}
           height="h-[500px]"
         />
         <div className="absolute inset-0 flex items-center justify-center">

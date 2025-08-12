@@ -17,11 +17,11 @@ async function connectToMongoDB() {
 
 // Email configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: 'sharmaishwar970@gmail.com',
-    pass: 'jhgc mraj kcrg flgj'
-  }
+    user: "sharmaishwar970@gmail.com",
+    pass: "jhgc mraj kcrg flgj",
+  },
 });
 
 // Get all job openings

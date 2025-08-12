@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
+import {
+  Phone,
+  Mail,
+  MapPin,
   MessageCircle,
   Rocket,
   Users,
@@ -16,7 +22,7 @@ import {
   Zap,
   Building,
   TrendingUp,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -32,99 +38,116 @@ export default function StartupHiring() {
   const benefits = [
     {
       title: "Rapid Team Building",
-      description: "Build your core team quickly with pre-vetted talent pools and accelerated hiring processes",
+      description:
+        "Build your core team quickly with pre-vetted talent pools and accelerated hiring processes",
       icon: Zap,
-      color: "blue"
+      color: "blue",
     },
     {
       title: "Cost-Effective Scaling",
-      description: "Optimize hiring costs while maintaining quality through strategic talent acquisition",
+      description:
+        "Optimize hiring costs while maintaining quality through strategic talent acquisition",
       icon: DollarSign,
-      color: "green"
+      color: "green",
     },
     {
       title: "Cultural Alignment",
-      description: "Find candidates who thrive in startup environments and embrace innovation",
+      description:
+        "Find candidates who thrive in startup environments and embrace innovation",
       icon: Users,
-      color: "purple"
+      color: "purple",
     },
     {
       title: "Growth-Ready Talent",
-      description: "Recruit professionals who can adapt and grow with your expanding organization",
+      description:
+        "Recruit professionals who can adapt and grow with your expanding organization",
       icon: TrendingUp,
-      color: "orange"
-    }
+      color: "orange",
+    },
   ];
 
   const hiringStages = [
     {
       stage: "Foundation Team",
-      description: "Core leadership and key technical roles to establish your startup",
+      description:
+        "Core leadership and key technical roles to establish your startup",
       roles: ["CTO", "VP Engineering", "Head of Product", "Lead Developer"],
-      timeframe: "0-6 months"
+      timeframe: "0-6 months",
     },
     {
       stage: "Growth Team",
-      description: "Scaling your team to support product development and market expansion",
-      roles: ["Engineers", "Product Managers", "Sales Leaders", "Marketing Head"],
-      timeframe: "6-18 months"
+      description:
+        "Scaling your team to support product development and market expansion",
+      roles: [
+        "Engineers",
+        "Product Managers",
+        "Sales Leaders",
+        "Marketing Head",
+      ],
+      timeframe: "6-18 months",
     },
     {
       stage: "Scale Team",
-      description: "Building departments and specialized functions for sustainable growth",
-      roles: ["Department Heads", "Specialists", "Regional Managers", "Operations Lead"],
-      timeframe: "18+ months"
-    }
+      description:
+        "Building departments and specialized functions for sustainable growth",
+      roles: [
+        "Department Heads",
+        "Specialists",
+        "Regional Managers",
+        "Operations Lead",
+      ],
+      timeframe: "18+ months",
+    },
   ];
 
   const successStories = [
     {
       company: "Fintech Startup",
       challenge: "Build complete tech team from scratch in 3 months",
-      solution: "Assembled 15-member engineering team including CTO, architects, and developers",
-      impact: "Launched MVP on time, secured Series A funding of $5M"
+      solution:
+        "Assembled 15-member engineering team including CTO, architects, and developers",
+      impact: "Launched MVP on time, secured Series A funding of $5M",
     },
     {
       company: "E-commerce Platform",
       challenge: "Scale from 5 to 50 employees in 6 months",
-      solution: "Created hiring pipeline for engineering, product, marketing, and operations roles",
-      impact: "Achieved 300% revenue growth, expanded to 3 new markets"
+      solution:
+        "Created hiring pipeline for engineering, product, marketing, and operations roles",
+      impact: "Achieved 300% revenue growth, expanded to 3 new markets",
     },
     {
       company: "HealthTech Startup",
       challenge: "Find rare combination of healthcare + tech expertise",
-      solution: "Identified and recruited professionals with dual domain experience",
-      impact: "Accelerated product development by 40%, gained regulatory approval"
-    }
+      solution:
+        "Identified and recruited professionals with dual domain experience",
+      impact:
+        "Accelerated product development by 40%, gained regulatory approval",
+    },
   ];
 
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(el => observer.observe(el));
+    const animateElements = document.querySelectorAll(".animate-on-scroll");
+    animateElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-
-
-<Header />
-
-
+      <Header />
 
       {/* Header */}
       {/* <header className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -208,11 +231,8 @@ export default function StartupHiring() {
 
       {/* Hero Section with Slider */}
       <section className="relative text-white">
-        <HeroSlider 
-          images={[
-"/images/img.jpg",
-"/images/ind.webp"
-          ]}
+        <HeroSlider
+          images={["/images/img.jpg", "/images/ind.webp"]}
           height="h-[500px]"
         />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -221,7 +241,9 @@ export default function StartupHiring() {
               Building Your Dream Team from Day One
             </h1>
             <p className="text-xl md:text-2xl max-w-4xl mx-auto animate-on-scroll">
-              Specialized recruitment for startups and greenfield operations. From founding team to scale team - we help you hire right, hire fast.
+              Specialized recruitment for startups and greenfield operations.
+              From founding team to scale team - we help you hire right, hire
+              fast.
             </p>
           </div>
         </div>
@@ -231,23 +253,35 @@ export default function StartupHiring() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Why Startups Choose Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Why Startups Choose Us
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              We understand the unique challenges of startup hiring and provide tailored solutions for rapid team building
+              We understand the unique challenges of startup hiring and provide
+              tailored solutions for rapid team building
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card key={index} className="professional-card animate-on-scroll text-center">
+                <Card
+                  key={index}
+                  className="professional-card animate-on-scroll text-center"
+                >
                   <CardContent className="p-6">
-                    <div className={`w-16 h-16 rounded-full bg-${benefit.color}-100 flex items-center justify-center mx-auto mb-4`}>
+                    <div
+                      className={`w-16 h-16 rounded-full bg-${benefit.color}-100 flex items-center justify-center mx-auto mb-4`}
+                    >
                       <Icon className={`h-8 w-8 text-${benefit.color}-600`} />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                    <p className="text-gray-700 text-sm">{benefit.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm">
+                      {benefit.description}
+                    </p>
                   </CardContent>
                 </Card>
               );
@@ -260,31 +294,45 @@ export default function StartupHiring() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Your Hiring Journey</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Your Hiring Journey
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
               Strategic hiring approach tailored to your startup's growth stage
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8">
             {hiringStages.map((stage, index) => (
               <Card key={index} className="professional-card animate-on-scroll">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold text-xl">{index + 1}</span>
+                      <span className="text-white font-bold text-xl">
+                        {index + 1}
+                      </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{stage.stage}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {stage.stage}
+                    </h3>
                     <Badge variant="secondary">{stage.timeframe}</Badge>
                   </div>
-                  
-                  <p className="text-gray-700 mb-6 text-center">{stage.description}</p>
-                  
+
+                  <p className="text-gray-700 mb-6 text-center">
+                    {stage.description}
+                  </p>
+
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-gray-900 text-center mb-4">Key Roles:</h4>
+                    <h4 className="font-semibold text-gray-900 text-center mb-4">
+                      Key Roles:
+                    </h4>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {stage.roles.map((role, roleIndex) => (
-                        <Badge key={roleIndex} variant="outline" className="text-xs">
+                        <Badge
+                          key={roleIndex}
+                          variant="outline"
+                          className="text-xs"
+                        >
                           {role}
                         </Badge>
                       ))}
@@ -301,12 +349,15 @@ export default function StartupHiring() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Startup Success Stories</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Startup Success Stories
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              How we've helped startups build world-class teams and achieve their goals
+              How we've helped startups build world-class teams and achieve
+              their goals
             </p>
           </div>
-          
+
           <div className="space-y-8">
             {successStories.map((story, index) => (
               <Card key={index} className="professional-card animate-on-scroll">
@@ -317,7 +368,9 @@ export default function StartupHiring() {
                         <Rocket className="h-5 w-5 text-purple-600" />
                         <Badge variant="secondary">{story.company}</Badge>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Challenge</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        Challenge
+                      </h3>
                       <p className="text-gray-700 text-sm">{story.challenge}</p>
                     </div>
                     <div>
@@ -332,7 +385,9 @@ export default function StartupHiring() {
                         <TrendingUp className="h-4 w-4" />
                         Impact
                       </h4>
-                      <p className="text-green-800 text-sm font-medium">{story.impact}</p>
+                      <p className="text-green-800 text-sm font-medium">
+                        {story.impact}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -350,16 +405,25 @@ export default function StartupHiring() {
               Ready to Build Your Dream Team?
             </h2>
             <p className="text-xl max-w-3xl mx-auto mb-8">
-              Whether you're a seed-stage startup or scaling rapidly, we'll help you find the right talent at the right time.
+              Whether you're a seed-stage startup or scaling rapidly, we'll help
+              you find the right talent at the right time.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/get-quote">
-                <Button size="lg" variant="secondary" className="bg-white text-purple-900 hover:bg-gray-100">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-purple-900 hover:bg-gray-100"
+                >
                   Get Startup Hiring Quote
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-900">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-purple-900"
+                >
                   Schedule Strategy Call
                 </Button>
               </Link>
@@ -371,9 +435,9 @@ export default function StartupHiring() {
       <Footer />
 
       {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/919971019767" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919971019767"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50 animate-bounce"
       >

@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Phone,
@@ -18,7 +24,7 @@ import {
   Zap,
   Pill,
   Home,
-  Truck
+  Truck,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -54,13 +60,13 @@ export default function Index() {
     const fetchLatestJobs = async () => {
       try {
         setLoadingJobs(true);
-        const response = await fetch('/api/jobs');
+        const response = await fetch("/api/jobs");
         if (response.ok) {
           const jobs = await response.json();
           setLatestJobs(jobs.slice(0, 3)); // Get only first 3 jobs
         }
       } catch (error) {
-        console.error('Error fetching jobs:', error);
+        console.error("Error fetching jobs:", error);
       } finally {
         setLoadingJobs(false);
       }
@@ -72,43 +78,43 @@ export default function Index() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(el => observer.observe(el));
+    const animateElements = document.querySelectorAll(".animate-on-scroll");
+    animateElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
-const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-// Show homepage modal after page loads
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setIsHomepageModalOpen(true);
-  }, 2000); // Show modal after 2 seconds
+  // Show homepage modal after page loads
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsHomepageModalOpen(true);
+    }, 2000); // Show modal after 2 seconds
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % 4); // 4 slides
-  }, 4000); // every 4 sec
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 4); // 4 slides
+    }, 4000); // every 4 sec
 
-  return () => clearInterval(interval);
-}, []);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="min-h-screen bg-white">
-     <Header />
+      <Header />
 
       {/* Header */}
       {/* <header className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -231,26 +237,25 @@ useEffect(() => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Animated Background Slider */}
-     <div className="hero-slider">
-  {[
-    "/images/current.jpg",
-    "/images/images.webp",
-    "/images/ser.jpeg",
-    "https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F4c544a153f3d4f8ab328d65415496f5b?format=webp&width=800",
-  ].map((img, i) => (
-    <div
-      key={i}
-      className={`slide ${activeIndex === i ? "active" : ""}`}
-      style={{
-        backgroundImage: `url('${img}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    ></div>
-  ))}
-</div>
-
+        <div className="hero-slider">
+          {[
+            "/images/current.jpg",
+            "/images/images.webp",
+            "/images/ser.jpeg",
+            "https://cdn.builder.io/api/v1/image/assets%2F006b1d80f49744f8a88951a12aeaff7a%2F4c544a153f3d4f8ab328d65415496f5b?format=webp&width=800",
+          ].map((img, i) => (
+            <div
+              key={i}
+              className={`slide ${activeIndex === i ? "active" : ""}`}
+              style={{
+                backgroundImage: `url('${img}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+          ))}
+        </div>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
@@ -269,7 +274,8 @@ useEffect(() => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <div className="hero-content">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-12 text-white">
-              A Gateway of <span className="font-black tracking-wider">INTELLIGENCE</span>
+              A Gateway of{" "}
+              <span className="font-black tracking-wider">INTELLIGENCE</span>
             </h1>
             <div className="animate-fade-in-up animation-delay-600 opacity-0">
               <Button
@@ -295,28 +301,55 @@ useEffect(() => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Who We Are</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Who We Are
+            </h2>
             <div className="max-w-6xl mx-auto">
               <div className="text-left space-y-6 mb-8">
                 <p className="text-lg text-gray-700">
-                  Intelligate Solutions is established for imparting Manpower Recruitment to Automotive, Engineering & IT sector on Pan India basis. We are emerging as the leading recruitment brand nationally for our clients.
+                  Intelligate Solutions is established for imparting Manpower
+                  Recruitment to Automotive, Engineering & IT sector on Pan
+                  India basis. We are emerging as the leading recruitment brand
+                  nationally for our clients.
                 </p>
                 <p className="text-lg text-gray-700">
-                  We are in the business of effectively understanding manpower requirements, procuring the candidate with the desired profile and building trusting relationships. With our industry expertise, we understand that company's today require more than a skilled candidate; they reach for employees who are productive, exhibit a positive attitude and have the ability to become a member of their team.
+                  We are in the business of effectively understanding manpower
+                  requirements, procuring the candidate with the desired profile
+                  and building trusting relationships. With our industry
+                  expertise, we understand that company's today require more
+                  than a skilled candidate; they reach for employees who are
+                  productive, exhibit a positive attitude and have the ability
+                  to become a member of their team.
                 </p>
                 <p className="text-lg text-gray-700">
-                  Apart from traditional practices to source candidates, we also incorporate innovative means to procure right professionals. Our experts leverage the power of technology-based recruitment and focus on online media to make sure that our clients receive the most suitable candidates for their organization.
+                  Apart from traditional practices to source candidates, we also
+                  incorporate innovative means to procure right professionals.
+                  Our experts leverage the power of technology-based recruitment
+                  and focus on online media to make sure that our clients
+                  receive the most suitable candidates for their organization.
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">About Intelligate Solutions</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
+                  About Intelligate Solutions
+                </h3>
                 <div className="text-left space-y-4">
                   <p className="text-lg text-gray-700">
-                    Intelligate Solution is a Leading HR consulting company with persistent zeal to provide best effective recruitment solutions. Intelligate Solutions was founded in 2015. Over the years, we have established ourselves as a recognized recruitment brand. We are the preferred recruitment partners for clients and a trusted consultant for professionals at Pan India Basis.
+                    Intelligate Solution is a Leading HR consulting company with
+                    persistent zeal to provide best effective recruitment
+                    solutions. Intelligate Solutions was founded in 2015. Over
+                    the years, we have established ourselves as a recognized
+                    recruitment brand. We are the preferred recruitment partners
+                    for clients and a trusted consultant for professionals at
+                    Pan India Basis.
                   </p>
                   <p className="text-lg text-gray-700">
-                    Intelligate Solutions's roots in consultancy enable us to bring a unique approach to recruitment. Our focus has been on Middle and Senior Management talent needs. We recruit across various industry segments for multinational corporations as well as leading business houses.
+                    Intelligate Solutions's roots in consultancy enable us to
+                    bring a unique approach to recruitment. Our focus has been
+                    on Middle and Senior Management talent needs. We recruit
+                    across various industry segments for multinational
+                    corporations as well as leading business houses.
                   </p>
                 </div>
               </div>
@@ -338,8 +371,12 @@ useEffect(() => {
       <section className="py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Trusted by Leading Companies</h2>
-            <p className="text-gray-600">We've partnered with industry leaders across various sectors</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Trusted by Leading Companies
+            </h2>
+            <p className="text-gray-600">
+              We've partnered with industry leaders across various sectors
+            </p>
           </div>
 
           <div className="relative">
@@ -526,10 +563,14 @@ useEffect(() => {
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Goal</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Our Goal
+            </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl text-gray-700 leading-relaxed">
-                "Our Goal is to create a perfect match between our clients and the candidates by understanding and pairing their needs and strengths…."
+                "Our Goal is to create a perfect match between our clients and
+                the candidates by understanding and pairing their needs and
+                strengths…."
               </p>
             </div>
           </div>
@@ -540,10 +581,14 @@ useEffect(() => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Our Strength</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Our Strength
+            </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-xl text-gray-700 leading-relaxed">
-                Excellent networking, in depth knowledge of the Automobile industry and expertise in understanding the various requirements of the different verticals.
+                Excellent networking, in depth knowledge of the Automobile
+                industry and expertise in understanding the various requirements
+                of the different verticals.
               </p>
             </div>
           </div>
@@ -554,20 +599,32 @@ useEffect(() => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Core Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our Core Services
+            </h2>
 
             <div className="max-w-5xl mx-auto mb-12">
               <blockquote className="text-xl italic text-gray-700 mb-4">
-                "Hide not your talents. They for use were made. What's a sundial in the shade?"
-                <footer className="text-lg font-medium text-gray-900 mt-2">— Benjamin Franklin</footer>
+                "Hide not your talents. They for use were made. What's a sundial
+                in the shade?"
+                <footer className="text-lg font-medium text-gray-900 mt-2">
+                  — Benjamin Franklin
+                </footer>
               </blockquote>
 
               <div className="bg-white p-8 rounded-lg shadow-sm text-left">
                 <p className="text-lg text-gray-700 mb-4">
-                  Every single person who walks into the doors of Intelli-gate is a possible recruit. What requires is careful counselling and identification of area of interest. At Intelli-gate, we offer our services to help organizations and job seekers to find each other.
+                  Every single person who walks into the doors of Intelli-gate
+                  is a possible recruit. What requires is careful counselling
+                  and identification of area of interest. At Intelli-gate, we
+                  offer our services to help organizations and job seekers to
+                  find each other.
                 </p>
                 <p className="text-lg text-gray-700">
-                  We believe in continuous learning with great sense of responsibility and team bonding. So if you are interested to take up new challenges with continuous growth, we are here to help you!
+                  We believe in continuous learning with great sense of
+                  responsibility and team bonding. So if you are interested to
+                  take up new challenges with continuous growth, we are here to
+                  help you!
                 </p>
               </div>
             </div>
@@ -577,54 +634,86 @@ useEffect(() => {
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card className="bg-white shadow-lg animate-on-scroll card-hover">
               <CardHeader>
-                <CardTitle className="text-xl text-blue-900">Research</CardTitle>
+                <CardTitle className="text-xl text-blue-900">
+                  Research
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  A deserving candidate can only be identified when recruiter has got in depth knowledge of the industry as well as the domain. A careful study of JD along with respective stake holder is the key for successful identification of the resource. We have got more than 25 man-years of experience in the field of Automobile industry which gives us edge over all the others.
+                  A deserving candidate can only be identified when recruiter
+                  has got in depth knowledge of the industry as well as the
+                  domain. A careful study of JD along with respective stake
+                  holder is the key for successful identification of the
+                  resource. We have got more than 25 man-years of experience in
+                  the field of Automobile industry which gives us edge over all
+                  the others.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-white shadow-lg animate-on-scroll card-hover">
               <CardHeader>
-                <CardTitle className="text-xl text-blue-900">Training</CardTitle>
+                <CardTitle className="text-xl text-blue-900">
+                  Training
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700">
-                  We have tied up with several professional and non-professional colleges in Dehra Dun, Lucknow, Rohtak and Kanpur region which can cater the demand of most competent staffing. Training sessions are executed in such a manner that students identify their interests and skills and strive for a carrier of their choice.
+                  We have tied up with several professional and non-professional
+                  colleges in Dehra Dun, Lucknow, Rohtak and Kanpur region which
+                  can cater the demand of most competent staffing. Training
+                  sessions are executed in such a manner that students identify
+                  their interests and skills and strive for a carrier of their
+                  choice.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-white shadow-lg animate-on-scroll">
               <CardHeader>
-                <CardTitle className="text-xl text-blue-900">Placement</CardTitle>
+                <CardTitle className="text-xl text-blue-900">
+                  Placement
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-700 mb-4">
-                  Every candidate at Intelli-gate is carefully filtered by our executives by assessment of their talent and skills. We being in the industry for 25 years have comprehensive knowledge of its pain areas. Therefore every talent is judged in all spreads and after full satisfaction only a suitable candidate is brought into the notice of Employer.
+                  Every candidate at Intelli-gate is carefully filtered by our
+                  executives by assessment of their talent and skills. We being
+                  in the industry for 25 years have comprehensive knowledge of
+                  its pain areas. Therefore every talent is judged in all
+                  spreads and after full satisfaction only a suitable candidate
+                  is brought into the notice of Employer.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-800">Strategic Leadership Hiring</span>
+                    <span className="text-sm font-medium text-gray-800">
+                      Strategic Leadership Hiring
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-800">Executive Search</span>
+                    <span className="text-sm font-medium text-gray-800">
+                      Executive Search
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-800">Diversity Sourcing</span>
+                    <span className="text-sm font-medium text-gray-800">
+                      Diversity Sourcing
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-800">Lateral Hiring</span>
+                    <span className="text-sm font-medium text-gray-800">
+                      Lateral Hiring
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-800">Bulk Hiring</span>
+                    <span className="text-sm font-medium text-gray-800">
+                      Bulk Hiring
+                    </span>
                   </div>
                 </div>
               </CardContent>
@@ -638,57 +727,69 @@ useEffect(() => {
                 <CardTitle>Executive Search</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Premium talent acquisition for senior leadership positions</CardDescription>
+                <CardDescription>
+                  Premium talent acquisition for senior leadership positions
+                </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Target className="h-12 w-12 text-blue-900 mb-4" />
                 <CardTitle>Strategic Leadership Hiring</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>C-suite and director-level recruitment solutions</CardDescription>
+                <CardDescription>
+                  C-suite and director-level recruitment solutions
+                </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Users className="h-12 w-12 text-blue-900 mb-4" />
                 <CardTitle>Lateral & Bulk Hiring</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Volume recruitment for operational excellence</CardDescription>
+                <CardDescription>
+                  Volume recruitment for operational excellence
+                </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <GraduationCap className="h-12 w-12 text-blue-900 mb-4" />
                 <CardTitle>Campus Placements</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Fresh talent sourcing from premier institutions</CardDescription>
+                <CardDescription>
+                  Fresh talent sourcing from premier institutions
+                </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Briefcase className="h-12 w-12 text-blue-900 mb-4" />
                 <CardTitle>Industry Training Programs</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Skill development and capability enhancement</CardDescription>
+                <CardDescription>
+                  Skill development and capability enhancement
+                </CardDescription>
               </CardContent>
             </Card>
-            
+
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <Users2 className="h-12 w-12 text-blue-900 mb-4" />
                 <CardTitle>Diversity Sourcing</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>Building inclusive and diverse teams</CardDescription>
+                <CardDescription>
+                  Building inclusive and diverse teams
+                </CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -699,45 +800,51 @@ useEffect(() => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Industries We Specialize In</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Industries We Specialize In
+            </h2>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Cpu className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">ITES & BPO</h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Car className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">Automotive</h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Building className="h-16 w-16 text-blue-900 mx-auto mb-4" />
-              <h3 className="font-semibold text-gray-900">Engineering & Manufacturing</h3>
+              <h3 className="font-semibold text-gray-900">
+                Engineering & Manufacturing
+              </h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Zap className="h-16 w-16 text-blue-900 mx-auto mb-4" />
-              <h3 className="font-semibold text-gray-900">Electrical & Electronics</h3>
+              <h3 className="font-semibold text-gray-900">
+                Electrical & Electronics
+              </h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Zap className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">Energy</h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Pill className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">Pharmaceuticals</h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Home className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">Real Estate</h3>
             </div>
-            
+
             <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
               <Truck className="h-16 w-16 text-blue-900 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-900">Tyre Industry</h3>
@@ -750,7 +857,9 @@ useEffect(() => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Intelligate?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Why Choose Intelligate?
+            </h2>
           </div>
 
           <div className="max-w-5xl mx-auto">
@@ -758,34 +867,53 @@ useEffect(() => {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">More than 60 man years of experience in the field of Automobile, Pharmaceuticals, FMCG, ITES and BPO industry.</p>
+                  <p className="text-lg text-gray-700">
+                    More than 60 man years of experience in the field of
+                    Automobile, Pharmaceuticals, FMCG, ITES and BPO industry.
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">Completely aware of the pain areas of the industry (bottle neck, hiring quality etc.)</p>
+                  <p className="text-lg text-gray-700">
+                    Completely aware of the pain areas of the industry (bottle
+                    neck, hiring quality etc.)
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">Excellent in Mapping, Headhunting and Referencing Skills.</p>
+                  <p className="text-lg text-gray-700">
+                    Excellent in Mapping, Headhunting and Referencing Skills.
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">Rich experience to find passive job seeker.</p>
+                  <p className="text-lg text-gray-700">
+                    Rich experience to find passive job seeker.
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">We believe in working towards reducing clutter and streamlining the manpower requirements of Companies.</p>
+                  <p className="text-lg text-gray-700">
+                    We believe in working towards reducing clutter and
+                    streamlining the manpower requirements of Companies.
+                  </p>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-3 h-3 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-lg text-gray-700">We try to find out the right people, at the right time, well before the commencement of training batches and at the right price because we understand that today companies require not only skilled candidate but at the same time productive, exhibit a positive attitude and a team player.</p>
+                  <p className="text-lg text-gray-700">
+                    We try to find out the right people, at the right time, well
+                    before the commencement of training batches and at the right
+                    price because we understand that today companies require not
+                    only skilled candidate but at the same time productive,
+                    exhibit a positive attitude and a team player.
+                  </p>
                 </div>
               </div>
             </div>
@@ -803,8 +931,13 @@ useEffect(() => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Process Parameters</h2>
-            <p className="text-lg text-gray-600">Ensuring efficiency, quality, and performance at every step of hiring.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Process Parameters
+            </h2>
+            <p className="text-lg text-gray-600">
+              Ensuring efficiency, quality, and performance at every step of
+              hiring.
+            </p>
           </div>
 
           <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
@@ -820,7 +953,12 @@ useEffect(() => {
 
                   {/* Funnel Shape */}
                   <div className="relative">
-                    <svg width="200" height="120" viewBox="0 0 200 120" className="overflow-visible">
+                    <svg
+                      width="200"
+                      height="120"
+                      viewBox="0 0 200 120"
+                      className="overflow-visible"
+                    >
                       <path
                         d="M 20 0 L 180 0 L 120 80 L 80 80 Z"
                         fill="#f3f4f6"
@@ -832,7 +970,9 @@ useEffect(() => {
                     {/* Process Parameter Box */}
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold text-center shadow-lg">
-                        PROCESS<br />PARAMETER
+                        PROCESS
+                        <br />
+                        PARAMETER
                       </div>
                     </div>
                   </div>
@@ -871,31 +1011,48 @@ useEffect(() => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our Team
+            </h2>
           </div>
 
           <div className="max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-sm border">
               <p className="text-lg text-gray-700 mb-6">
-                We have a team of multifaceted consultants who are highly experienced and specialize in industry sector that they serve. Our experienced professionals strictly follow the tradition of keeping track of the changing needs of the clients so as to ensure maximum satisfaction, in this area of ever changing scenario.
+                We have a team of multifaceted consultants who are highly
+                experienced and specialize in industry sector that they serve.
+                Our experienced professionals strictly follow the tradition of
+                keeping track of the changing needs of the clients so as to
+                ensure maximum satisfaction, in this area of ever changing
+                scenario.
               </p>
 
               <p className="text-lg text-gray-700 mb-6">
-                Our team do all the preliminary screening. We contact and interview candidates regarding their interest and suitability. Only after we are satisfied we send them to you for an interview.
+                Our team do all the preliminary screening. We contact and
+                interview candidates regarding their interest and suitability.
+                Only after we are satisfied we send them to you for an
+                interview.
               </p>
 
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-blue-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-blue-900 mb-4">Team Qualifications</h3>
+                  <h3 className="text-xl font-bold text-blue-900 mb-4">
+                    Team Qualifications
+                  </h3>
                   <p className="text-gray-700">
-                    Our entire faculty is either MBA or B-tech in their respective field.
+                    Our entire faculty is either MBA or B-tech in their
+                    respective field.
                   </p>
                 </div>
 
                 <div className="bg-red-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-red-900 mb-4">Professional Approach</h3>
+                  <h3 className="text-xl font-bold text-red-900 mb-4">
+                    Professional Approach
+                  </h3>
                   <p className="text-gray-700">
-                    Experienced and highly qualified team of consultants with professional approach make up the ever competitive team of Intelli-gate.
+                    Experienced and highly qualified team of consultants with
+                    professional approach make up the ever competitive team of
+                    Intelli-gate.
                   </p>
                 </div>
               </div>
@@ -911,28 +1068,42 @@ useEffect(() => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Vision</h2>
             <div className="max-w-5xl mx-auto">
               <p className="text-xl mb-8 leading-relaxed">
-                Intelligate Solutions vision is multifaceted, generally aiming to be the preferred partner for both employers and job seekers, facilitating successful career paths and talent acquisition. We are committed to serve the society by adding value to the customers, team members and the community at large in terms of:
+                Intelligate Solutions vision is multifaceted, generally aiming
+                to be the preferred partner for both employers and job seekers,
+                facilitating successful career paths and talent acquisition. We
+                are committed to serve the society by adding value to the
+                customers, team members and the community at large in terms of:
               </p>
 
               <div className="grid md:grid-cols-3 gap-8 text-left">
                 <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-4">Customer Excellence</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Customer Excellence
+                  </h3>
                   <p className="text-blue-100">
                     Providing customer delight, offering reliable services.
                   </p>
                 </div>
 
                 <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-4">Employee Growth</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Employee Growth
+                  </h3>
                   <p className="text-blue-100">
-                    Providing an environment, conducive to the development, growth and satisfaction of employees while fulfilling their aspirations.
+                    Providing an environment, conducive to the development,
+                    growth and satisfaction of employees while fulfilling their
+                    aspirations.
                   </p>
                 </div>
 
                 <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-4">Social Responsibility</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    Social Responsibility
+                  </h3>
                   <p className="text-blue-100">
-                    Contributing to the well being of the society and conducting ourselves as a responsible corporate citizen, known for integrity and ethics.
+                    Contributing to the well being of the society and conducting
+                    ourselves as a responsible corporate citizen, known for
+                    integrity and ethics.
                   </p>
                 </div>
               </div>
@@ -945,9 +1116,13 @@ useEffect(() => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Explore Current Openings</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Explore Current Openings
+            </h2>
             <p className="text-lg text-gray-600">
-              {loadingJobs ? 'Loading latest opportunities...' : `${latestJobs.length} positions available across leading companies`}
+              {loadingJobs
+                ? "Loading latest opportunities..."
+                : `${latestJobs.length} positions available across leading companies`}
             </p>
           </div>
 
@@ -969,16 +1144,27 @@ useEffect(() => {
             ) : latestJobs.length > 0 ? (
               // Real job data
               latestJobs.map((job) => (
-                <Card key={job._id} className="hover:shadow-lg transition-shadow duration-300">
+                <Card
+                  key={job._id}
+                  className="hover:shadow-lg transition-shadow duration-300"
+                >
                   <CardHeader>
                     <CardTitle className="text-lg">{job.title}</CardTitle>
-                    <CardDescription>{job.industry} • {job.location} • {job.experience}</CardDescription>
+                    <CardDescription>
+                      {job.industry} • {job.location} • {job.experience}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{job.description}</p>
+                    <p className="text-gray-600 mb-4 line-clamp-2">
+                      {job.description}
+                    </p>
                     <div className="flex flex-wrap gap-1 mb-4">
-                      <Badge variant="secondary" className="text-xs">₹{job.salary}</Badge>
-                      <Badge variant="outline" className="text-xs">{job.type}</Badge>
+                      <Badge variant="secondary" className="text-xs">
+                        ₹{job.salary}
+                      </Badge>
+                      <Badge variant="outline" className="text-xs">
+                        {job.type}
+                      </Badge>
                     </div>
                     <Link to="/openings">
                       <Button className="w-full">Apply Now</Button>
@@ -989,14 +1175,18 @@ useEffect(() => {
             ) : (
               // No jobs available
               <div className="col-span-full text-center py-12">
-                <p className="text-gray-500 text-lg">No current openings available. Please check back later.</p>
+                <p className="text-gray-500 text-lg">
+                  No current openings available. Please check back later.
+                </p>
               </div>
             )}
           </div>
 
           <div className="text-center">
             <Link to="/openings">
-              <Button variant="outline" size="lg">View All Openings</Button>
+              <Button variant="outline" size="lg">
+                View All Openings
+              </Button>
             </Link>
           </div>
         </div>
@@ -1006,9 +1196,11 @@ useEffect(() => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Connect With Us</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Connect With Us
+            </h2>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <Card>
               <CardHeader>
@@ -1018,10 +1210,12 @@ useEffect(() => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">155/29 Ram Gopal Colony, Delhi Road</p>
+                <p className="text-gray-600">
+                  155/29 Ram Gopal Colony, Delhi Road
+                </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -1034,34 +1228,46 @@ useEffect(() => {
               </CardContent>
             </Card>
           </div>
-          
+
           <div className="text-center space-y-4">
             <div className="flex flex-wrap justify-center gap-6">
-              <a href="mailto:akhil.kaushik@intelligatesolution.com" className="flex items-center gap-2 text-blue-900 hover:text-blue-700">
+              <a
+                href="mailto:akhil.kaushik@intelligatesolution.com"
+                className="flex items-center gap-2 text-blue-900 hover:text-blue-700"
+              >
                 <Mail className="h-5 w-5" />
                 akhil.kaushik@intelligatesolution.com
               </a>
-              <a href="mailto:admin@intelligatesolution.com" className="flex items-center gap-2 text-blue-900 hover:text-blue-700">
+              <a
+                href="mailto:admin@intelligatesolution.com"
+                className="flex items-center gap-2 text-blue-900 hover:text-blue-700"
+              >
                 <Mail className="h-5 w-5" />
                 admin@intelligatesolution.com
               </a>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-6">
-              <a href="tel:9650923366" className="flex items-center gap-2 text-blue-900 hover:text-blue-700">
+              <a
+                href="tel:9650923366"
+                className="flex items-center gap-2 text-blue-900 hover:text-blue-700"
+              >
                 <Phone className="h-5 w-5" />
                 9650923366
               </a>
-              <a href="tel:9971019767" className="flex items-center gap-2 text-blue-900 hover:text-blue-700">
+              <a
+                href="tel:9971019767"
+                className="flex items-center gap-2 text-blue-900 hover:text-blue-700"
+              >
                 <Phone className="h-5 w-5" />
                 9971019767
               </a>
             </div>
-            
+
             <div className="pt-4">
-              <a 
-                href="https://wa.me/919971019767" 
-                target="_blank" 
+              <a
+                href="https://wa.me/919971019767"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors"
               >

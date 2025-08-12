@@ -109,9 +109,7 @@ export default function Footer() {
                 </a>
               </div>
               <div>
-                <span className="text-orange-400 font-semibold">
-                  Join Us:
-                </span>
+                <span className="text-orange-400 font-semibold">Join Us:</span>
                 <a
                   href="mailto:admin@intelligatesolution.com"
                   className="block text-gray-300 hover:text-white transition-colors"
@@ -158,9 +156,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium">Rohtak Office :</p>
-                  <p className="text-sm">
-                    155/29 Ram Gopal Colony, Delhi Road
-                  </p>
+                  <p className="text-sm">155/29 Ram Gopal Colony, Delhi Road</p>
                 </div>
               </div>
               <div className="flex space-x-4 mt-6">

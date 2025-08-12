@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
+import {
+  Phone,
+  Mail,
+  MapPin,
   MessageCircle,
   Settings,
   Users,
@@ -21,7 +27,7 @@ import {
   UserCheck,
   FileCheck,
   Headphones,
-  Cog
+  Cog,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -37,59 +43,74 @@ export default function RPO() {
   const benefits = [
     {
       title: "Faster Time-to-Hire",
-      description: "Reduce hiring TAT by 40-60% with dedicated resources and streamlined processes",
+      description:
+        "Reduce hiring TAT by 40-60% with dedicated resources and streamlined processes",
       icon: Clock,
       color: "blue",
-      metric: "40-60% faster"
+      metric: "40-60% faster",
     },
     {
       title: "Lower Cost per Hire",
-      description: "Significantly reduce recruitment costs while maintaining quality standards",
+      description:
+        "Significantly reduce recruitment costs while maintaining quality standards",
       icon: TrendingDown,
       color: "green",
-      metric: "30-50% cost reduction"
+      metric: "30-50% cost reduction",
     },
     {
       title: "Managed Compliance",
-      description: "Full compliance management with labor laws, background checks, and documentation",
+      description:
+        "Full compliance management with labor laws, background checks, and documentation",
       icon: Shield,
       color: "purple",
-      metric: "100% compliant"
+      metric: "100% compliant",
     },
     {
       title: "Scalable Solutions",
-      description: "Scale up or down based on your hiring needs without infrastructure overhead",
+      description:
+        "Scale up or down based on your hiring needs without infrastructure overhead",
       icon: BarChart3,
       color: "orange",
-      metric: "Unlimited scalability"
-    }
+      metric: "Unlimited scalability",
+    },
   ];
 
   const embeddedModel = [
     {
       component: "Dedicated Recruiters",
-      description: "Experienced recruiters work exclusively for your organization",
+      description:
+        "Experienced recruiters work exclusively for your organization",
       features: ["Industry expertise", "Cultural alignment", "Brand advocacy"],
-      icon: Users
+      icon: Users,
     },
     {
       component: "Technology Integration",
-      description: "Seamless integration with your existing HR systems and processes",
+      description:
+        "Seamless integration with your existing HR systems and processes",
       features: ["ATS integration", "Real-time reporting", "Custom dashboards"],
-      icon: Settings
+      icon: Settings,
     },
     {
       component: "Process Optimization",
-      description: "Continuous improvement of recruitment workflows and candidate experience",
-      features: ["Standard operating procedures", "Quality metrics", "Feedback loops"],
-      icon: Cog
+      description:
+        "Continuous improvement of recruitment workflows and candidate experience",
+      features: [
+        "Standard operating procedures",
+        "Quality metrics",
+        "Feedback loops",
+      ],
+      icon: Cog,
     },
     {
       component: "Compliance Management",
       description: "End-to-end compliance handling from sourcing to onboarding",
-      features: ["Background verification", "Document management", "Legal compliance"],
-      icon: FileCheck
-    }
+      features: [
+        "Background verification",
+        "Document management",
+        "Legal compliance",
+      ],
+      icon: FileCheck,
+    },
   ];
 
   const customPlans = [
@@ -102,9 +123,9 @@ export default function RPO() {
         "Basic ATS Integration",
         "Monthly Reporting",
         "Email & Phone Support",
-        "Standard Compliance"
+        "Standard Compliance",
       ],
-      highlight: "Cost-effective"
+      highlight: "Cost-effective",
     },
     {
       tier: "Growth Plan",
@@ -116,9 +137,9 @@ export default function RPO() {
         "Weekly Reporting & Analytics",
         "Priority Support",
         "Advanced Compliance",
-        "Custom Workflows"
+        "Custom Workflows",
       ],
-      highlight: "Most Popular"
+      highlight: "Most Popular",
     },
     {
       tier: "Enterprise Plan",
@@ -131,45 +152,42 @@ export default function RPO() {
         "24/7 Support",
         "Global Compliance",
         "Custom Solutions",
-        "SLA Guarantees"
+        "SLA Guarantees",
       ],
-      highlight: "Full Service"
-    }
+      highlight: "Full Service",
+    },
   ];
 
   const metrics = [
     { label: "Average TAT Reduction", value: "50%", icon: Clock },
     { label: "Cost Savings", value: "40%", icon: DollarSign },
     { label: "Client Satisfaction", value: "95%", icon: Award },
-    { label: "Compliance Rate", value: "100%", icon: Shield }
+    { label: "Compliance Rate", value: "100%", icon: Shield },
   ];
 
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add("in-view");
         }
       });
     }, observerOptions);
 
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(el => observer.observe(el));
+    const animateElements = document.querySelectorAll(".animate-on-scroll");
+    animateElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-
-
-<Header />
-
+      <Header />
 
       {/* Header */}
       {/* <header className="bg-white shadow-sm border-b sticky top-0 z-50">
@@ -253,11 +271,8 @@ export default function RPO() {
 
       {/* Hero Section with Slider */}
       <section className="relative text-white">
-        <HeroSlider 
-          images={[
-"/images/img.jpg",
-"/images/ind.webp"
-          ]}
+        <HeroSlider
+          images={["/images/img.jpg", "/images/ind.webp"]}
           height="h-[500px]"
         />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -266,7 +281,8 @@ export default function RPO() {
               Outsource Hiring. Retain Control.
             </h1>
             <p className="text-xl md:text-2xl max-w-4xl mx-auto animate-on-scroll">
-              Full-cycle hiring solutions embedded into your business with dedicated recruitment experts.
+              Full-cycle hiring solutions embedded into your business with
+              dedicated recruitment experts.
             </p>
           </div>
         </div>
@@ -283,8 +299,12 @@ export default function RPO() {
                   <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <div className="text-3xl font-bold text-blue-900 mb-2">{metric.value}</div>
-                  <div className="text-gray-700 font-medium">{metric.label}</div>
+                  <div className="text-3xl font-bold text-blue-900 mb-2">
+                    {metric.value}
+                  </div>
+                  <div className="text-gray-700 font-medium">
+                    {metric.label}
+                  </div>
                 </div>
               );
             })}
@@ -296,24 +316,39 @@ export default function RPO() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Benefits of RPO</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Benefits of RPO
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              Transform your recruitment function with measurable improvements in speed, cost, and quality
+              Transform your recruitment function with measurable improvements
+              in speed, cost, and quality
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <Card key={index} className="professional-card animate-on-scroll text-center">
+                <Card
+                  key={index}
+                  className="professional-card animate-on-scroll text-center"
+                >
                   <CardContent className="p-6">
-                    <div className={`w-16 h-16 rounded-full bg-${benefit.color}-100 flex items-center justify-center mx-auto mb-4`}>
+                    <div
+                      className={`w-16 h-16 rounded-full bg-${benefit.color}-100 flex items-center justify-center mx-auto mb-4`}
+                    >
                       <Icon className={`h-8 w-8 text-${benefit.color}-600`} />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                    <p className="text-gray-700 text-sm mb-4">{benefit.description}</p>
-                    <Badge variant="secondary" className={`bg-${benefit.color}-100 text-${benefit.color}-800`}>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-700 text-sm mb-4">
+                      {benefit.description}
+                    </p>
+                    <Badge
+                      variant="secondary"
+                      className={`bg-${benefit.color}-100 text-${benefit.color}-800`}
+                    >
                       {benefit.metric}
                     </Badge>
                   </CardContent>
@@ -328,30 +363,45 @@ export default function RPO() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Embedded Recruiters Model</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Embedded Recruiters Model
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              Our recruiters become an extension of your team, working exclusively for your organization
+              Our recruiters become an extension of your team, working
+              exclusively for your organization
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {embeddedModel.map((component, index) => {
               const Icon = component.icon;
               return (
-                <Card key={index} className="professional-card animate-on-scroll">
+                <Card
+                  key={index}
+                  className="professional-card animate-on-scroll"
+                >
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Icon className="h-6 w-6 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{component.component}</h3>
-                        <p className="text-gray-700 mb-4">{component.description}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                          {component.component}
+                        </h3>
+                        <p className="text-gray-700 mb-4">
+                          {component.description}
+                        </p>
                         <div className="space-y-2">
                           {component.features.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-center gap-2">
+                            <div
+                              key={featureIndex}
+                              className="flex items-center gap-2"
+                            >
                               <CheckCircle className="h-4 w-4 text-green-600" />
-                              <span className="text-sm text-gray-700">{feature}</span>
+                              <span className="text-sm text-gray-700">
+                                {feature}
+                              </span>
                             </div>
                           ))}
                         </div>
@@ -369,15 +419,21 @@ export default function RPO() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Custom Plans for Every Business</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">
+              Custom Plans for Every Business
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto animate-on-scroll">
-              From SMEs to large enterprises, we have the right RPO solution for your scale and requirements
+              From SMEs to large enterprises, we have the right RPO solution for
+              your scale and requirements
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8">
             {customPlans.map((plan, index) => (
-              <Card key={index} className={`professional-card animate-on-scroll relative ${plan.highlight === 'Most Popular' ? 'ring-2 ring-blue-500' : ''}`}>
+              <Card
+                key={index}
+                className={`professional-card animate-on-scroll relative ${plan.highlight === "Most Popular" ? "ring-2 ring-blue-500" : ""}`}
+              >
                 {plan.highlight && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-blue-600 text-white px-4 py-1">
@@ -387,22 +443,36 @@ export default function RPO() {
                 )}
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.tier}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {plan.tier}
+                    </h3>
                     <p className="text-gray-600 mb-4">{plan.target}</p>
-                    <div className="text-3xl font-bold text-blue-600">{plan.volume}</div>
+                    <div className="text-3xl font-bold text-blue-600">
+                      {plan.volume}
+                    </div>
                   </div>
-                  
+
                   <div className="space-y-3">
                     {plan.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-3">
+                      <div
+                        key={featureIndex}
+                        className="flex items-center gap-3"
+                      >
                         <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  
+
                   <div className="mt-8">
-                    <Button className="w-full" variant={plan.highlight === 'Most Popular' ? 'default' : 'outline'}>
+                    <Button
+                      className="w-full"
+                      variant={
+                        plan.highlight === "Most Popular"
+                          ? "default"
+                          : "outline"
+                      }
+                    >
                       Get {plan.tier}
                     </Button>
                   </div>
@@ -421,16 +491,25 @@ export default function RPO() {
               Ready to Transform Your Hiring Process?
             </h2>
             <p className="text-xl max-w-3xl mx-auto mb-8">
-              Let's discuss how our RPO solutions can help you reduce costs, improve quality, and accelerate your hiring timeline.
+              Let's discuss how our RPO solutions can help you reduce costs,
+              improve quality, and accelerate your hiring timeline.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/get-quote">
-                <Button size="lg" variant="secondary" className="bg-white text-blue-900 hover:bg-gray-100">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white text-blue-900 hover:bg-gray-100"
+                >
                   Get Custom RPO Quote
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-900">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-blue-900"
+                >
                   Schedule RPO Consultation
                 </Button>
               </Link>
@@ -442,9 +521,9 @@ export default function RPO() {
       <Footer />
 
       {/* WhatsApp Floating Button */}
-      <a 
-        href="https://wa.me/919971019767" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919971019767"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-colors z-50 animate-bounce"
       >
