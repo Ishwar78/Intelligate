@@ -134,9 +134,20 @@ export default function AdminDashboard() {
 
   // Fetch jobs, applications and categories
   useEffect(() => {
-    fetchJobs();
-    fetchApplications();
-    fetchCategories();
+    const fetchData = async () => {
+      await fetchJobs();
+
+      // Add a small delay before fetching applications
+      setTimeout(() => {
+        fetchApplications();
+      }, 500);
+
+      setTimeout(() => {
+        fetchCategories();
+      }, 1000);
+    };
+
+    fetchData();
   }, []);
 
   const getAuthHeaders = () => {
