@@ -89,8 +89,14 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(errorData.error || `Server error: ${response.status}`);
+        let errorMessage = `Server error: ${response.status}`;
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch (parseError) {
+          console.error('Error parsing server response:', parseError);
+        }
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
