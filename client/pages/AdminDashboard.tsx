@@ -435,7 +435,17 @@ export default function AdminDashboard() {
               <CardTitle className="text-sm font-medium">
                 Applications
               </CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <div className="flex gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={fetchApplications}
+                  className="h-6 w-6 p-0"
+                >
+                  <RefreshCw className="h-3 w-3" />
+                </Button>
+                <Users className="h-4 w-4 text-muted-foreground" />
+              </div>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{applications.length}</div>
