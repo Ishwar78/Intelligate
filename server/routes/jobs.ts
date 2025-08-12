@@ -163,7 +163,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
     }
 
     const application = {
-      jobId,
+      jobId: new ObjectId(jobId), // Convert to ObjectId for proper lookup
       fullName,
       email,
       phone,
