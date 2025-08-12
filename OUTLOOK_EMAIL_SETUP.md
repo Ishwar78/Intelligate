@@ -51,10 +51,11 @@ const transporter = nodemailer.createTransporter({
 });
 ```
 
-## Current Temporary Solution
-- **Sender**: `sharmaishwar970@gmail.com` (working Gmail SMTP)
-- **Recipient**: `admin@intelligatesolution.com` (notifications go here)
-- All emails are working and being delivered to the admin email
+## Current Final Solution
+- **Sender**: `admin@intelligatesolution.com` (Outlook SMTP)
+- **Recipient**: `admin@intelligatesolution.com` (all notifications)
+- **SMTP Host**: `smtp.office365.com`
+- All emails are sent from and delivered to the admin email
 
 ## Next Steps
 1. Try Option 1 (App Password) first
