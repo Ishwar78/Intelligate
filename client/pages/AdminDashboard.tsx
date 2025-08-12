@@ -187,22 +187,28 @@ export default function AdminDashboard() {
   };
 
   const fetchApplications = async () => {
+    setApplicationsLoading(true);
     try {
+      const headers = getAuthHeaders();
+      if (!Object.keys(headers).length) return; // No token available
+
       const response = await fetch("/api/applications", {
-        headers: getAuthHeaders(),
+        headers,
       });
       if (response.ok) {
         const appsData = await response.json();
         setApplications(appsData);
+        console.log(`Loaded ${appsData.length} applications`);
       } else if (response.status === 401) {
         console.warn("Unauthorized access to applications");
-        // Don't navigate away, just log the issue
+        navigate("/admin/login");
       } else {
         console.error(`Failed to fetch applications: ${response.status} ${response.statusText}`);
       }
     } catch (err) {
       console.error("Network error fetching applications:", err);
-      // Don't show error for applications fetch failure as it's not critical
+    } finally {
+      setApplicationsLoading(false);
     }
   };
 
