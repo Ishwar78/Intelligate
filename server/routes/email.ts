@@ -175,8 +175,8 @@ export const sendContactEmail: RequestHandler = async (req, res) => {
 
   } catch (error) {
     console.error("Error sending email:", error);
-    res.status(500).json({ 
-      error: "Failed to send email. Please try again or contact us directly." 
+    res.status(500).json({
+      error: "Unable to send your message at the moment. Please contact us directly at +91 9971019767 or try again later."
     });
   }
 };
