@@ -109,7 +109,8 @@ export default function HomepageModal({ isOpen, onClose }: HomepageModalProps) {
       
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("There was an error submitting your information. Please try again or contact us directly.");
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Sorry, there was an issue sending your message: ${errorMessage}. Please try again or contact us directly at +91 9971019767.`);
     } finally {
       setIsSubmitting(false);
     }
