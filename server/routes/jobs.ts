@@ -312,7 +312,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
 
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions" <admin@intelligatesolution.com>',
+        from: '"Intelligate Solutions" <sharmaishwar970@gmail.com>',
         to: email,
         subject: `Application Received - ${job.title} at Intelligate Solutions`,
         html: candidateEmailContent,
