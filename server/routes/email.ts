@@ -133,8 +133,8 @@ export const sendContactEmail: RequestHandler = async (req, res) => {
 
     // Prepare email options
     const emailOptions: any = {
-      from: '"Intelligate Solutions Website" <sharmaishwar970@gmail.com>',
-      to: 'sharmaishwar970@gmail.com',
+      from: '"Intelligate Solutions Website" <admin@intelligatesolution.com>',
+      to: 'admin@intelligatesolution.com',
       subject: emailSubject,
       html: adminEmailContent
     };
@@ -162,7 +162,7 @@ export const sendContactEmail: RequestHandler = async (req, res) => {
       : "Your message has been sent successfully. We'll get back to you soon!";
 
     await transporter.sendMail({
-      from: '"Intelligate Solutions" <sharmaishwar970@gmail.com>',
+      from: '"Intelligate Solutions" <admin@intelligatesolution.com>',
       to: email,
       subject: userSubject,
       html: userEmailContent
