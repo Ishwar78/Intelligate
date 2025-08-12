@@ -151,6 +151,7 @@ export const deleteJob: RequestHandler = async (req, res) => {
 export const submitApplication: RequestHandler = async (req, res) => {
   try {
     const { jobId, fullName, email, phone, resume } = req.body;
+    console.log("Submitting application for job:", jobId, "by:", fullName);
 
     const db = await connectToMongoDB();
 
