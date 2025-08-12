@@ -176,9 +176,15 @@ export default function AdminDashboard() {
       if (response.ok) {
         const appsData = await response.json();
         setApplications(appsData);
+      } else if (response.status === 401) {
+        console.warn("Unauthorized access to applications");
+        // Don't navigate away, just log the issue
+      } else {
+        console.error(`Failed to fetch applications: ${response.status} ${response.statusText}`);
       }
     } catch (err) {
-      console.error("Failed to fetch applications");
+      console.error("Network error fetching applications:", err);
+      // Don't show error for applications fetch failure as it's not critical
     }
   };
 
