@@ -17,11 +17,16 @@ async function connectToMongoDB() {
 
 // Email configuration
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: 'smtp.gmail.com', // Use Gmail SMTP as relay
+  port: 587,
+  secure: false,
   auth: {
     user: "admin@intelligatesolution.com",
     pass: "qnztrxfqhpxgrlff",
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 // Get all job openings
