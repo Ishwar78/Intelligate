@@ -27,6 +27,7 @@ import { useEffect, useState } from "react";
 import HeroSlider from "@/components/HeroSlider";
 import ServiceDropdown from "@/components/ServiceDropdown";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Industries() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
