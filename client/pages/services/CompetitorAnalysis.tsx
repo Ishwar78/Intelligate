@@ -642,7 +642,7 @@ export default function CompetitorAnalysis() {
           </div>
         </div>
       </footer>
-
+      <Footer />
       {/* WhatsApp Floating Button */}
       <a 
         href="https://wa.me/919971019767" 
