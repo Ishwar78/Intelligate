@@ -19,8 +19,8 @@ async function connectToMongoDB() {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "sharmaishwar970@gmail.com",
-    pass: "jhgc mraj kcrg flgj",
+    user: "admin@intelligatesolution.com",
+    pass: "qnztrxfqhpxgrlff",
   },
 });
 
@@ -243,8 +243,8 @@ export const submitApplication: RequestHandler = async (req, res) => {
     // Send email to admin
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions Jobs" <sharmaishwar970@gmail.com>',
-        to: "sharmaishwar970@gmail.com",
+        from: '"Intelligate Solutions Jobs" <admin@intelligatesolution.com>',
+        to: "admin@intelligatesolution.com",
         subject: emailSubject,
         html: adminEmailContent,
         attachments: [
@@ -311,7 +311,7 @@ export const submitApplication: RequestHandler = async (req, res) => {
 
     try {
       await transporter.sendMail({
-        from: '"Intelligate Solutions" <sharmaishwar970@gmail.com>',
+        from: '"Intelligate Solutions" <admin@intelligatesolution.com>',
         to: email,
         subject: `Application Received - ${job.title} at Intelligate Solutions`,
         html: candidateEmailContent,
