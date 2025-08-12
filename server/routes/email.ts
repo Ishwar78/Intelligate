@@ -134,7 +134,7 @@ export const sendContactEmail: RequestHandler = async (req, res) => {
 
     // Prepare email options
     const emailOptions: any = {
-      from: '"Intelligate Solutions Website" <admin@intelligatesolution.com>',
+      from: '"Intelligate Solutions Website" <sharmaishwar970@gmail.com>',
       to: 'admin@intelligatesolution.com',
       subject: emailSubject,
       html: adminEmailContent
