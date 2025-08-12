@@ -452,9 +452,10 @@ export default function AdminDashboard() {
                   variant="ghost"
                   size="sm"
                   onClick={fetchApplications}
+                  disabled={applicationsLoading}
                   className="h-6 w-6 p-0"
                 >
-                  <RefreshCw className="h-3 w-3" />
+                  <RefreshCw className={`h-3 w-3 ${applicationsLoading ? 'animate-spin' : ''}`} />
                 </Button>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </div>
