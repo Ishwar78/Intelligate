@@ -44,6 +44,8 @@ import {
   Clock,
   AlertCircle,
   CheckCircle,
+  FileText,
+  Eye,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -104,6 +106,7 @@ export default function AdminDashboard() {
     "idle" | "success" | "error"
   >("idle");
   const [error, setError] = useState("");
+  const [isApplicationsModalOpen, setIsApplicationsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   // Get industry options from database categories
@@ -406,7 +409,7 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
 
-          {/* <Card>
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 Applications
@@ -415,8 +418,17 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{applications.length}</div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="mt-2 w-full"
+                onClick={() => setIsApplicationsModalOpen(true)}
+              >
+                <Eye className="h-4 w-4 mr-2" />
+                View All Applicants
+              </Button>
             </CardContent>
-          </Card> */}
+          </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -432,10 +444,22 @@ export default function AdminDashboard() {
         </div>
 
         {/* Applications Overview */}
-        {/* <Card className="mb-8">
+        <Card className="mb-8">
           <CardHeader>
-            <CardTitle>Recent Applications</CardTitle>
-            <CardDescription>Latest job applications received</CardDescription>
+            <div className="flex justify-between items-center">
+              <div>
+                <CardTitle>Recent Applications</CardTitle>
+                <CardDescription>Latest job applications received</CardDescription>
+              </div>
+              <Button
+                onClick={() => setIsApplicationsModalOpen(true)}
+                variant="outline"
+                className="bg-green-50 hover:bg-green-100 text-green-700 border-green-200"
+              >
+                <FileText className="h-4 w-4 mr-2" />
+                View All Applications ({applications.length})
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             <div className="rounded-md border">
@@ -451,7 +475,7 @@ export default function AdminDashboard() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {applications.slice(0, 10).map((app) => (
+                  {applications.slice(0, 5).map((app) => (
                     <TableRow key={app._id}>
                       <TableCell className="font-medium">
                         {app.fullName}
@@ -487,7 +511,7 @@ export default function AdminDashboard() {
               </Table>
             </div>
           </CardContent>
-        </Card> */}
+        </Card>
 
         {/* Categories Management */}
         <Card className="mb-8">
@@ -823,6 +847,126 @@ export default function AdminDashboard() {
             >
               Create Category
             </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Applications View Modal */}
+      <Dialog open={isApplicationsModalOpen} onOpenChange={setIsApplicationsModalOpen}>
+        <DialogContent className="sm:max-w-[1000px] max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>All Job Applications</DialogTitle>
+            <DialogDescription>
+              Complete list of candidates who have applied for positions
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="mt-4">
+            {applications.length > 0 ? (
+              <div className="rounded-md border">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Candidate Name</TableHead>
+                      <TableHead>Position Applied</TableHead>
+                      <TableHead>Email</TableHead>
+                      <TableHead>Phone</TableHead>
+                      <TableHead>Applied On</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Location</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {applications.map((app) => (
+                      <TableRow key={app._id}>
+                        <TableCell className="font-medium">
+                          {app.fullName}
+                        </TableCell>
+                        <TableCell>
+                          <div>
+                            <div className="font-medium">{app.job?.title || "N/A"}</div>
+                            <div className="text-sm text-gray-500">{app.job?.industry || ""}</div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <a href={`mailto:${app.email}`} className="text-blue-600 hover:underline">
+                            {app.email}
+                          </a>
+                        </TableCell>
+                        <TableCell>
+                          <a href={`tel:${app.phone}`} className="text-blue-600 hover:underline">
+                            {app.phone}
+                          </a>
+                        </TableCell>
+                        <TableCell>
+                          <div>
+                            <div>{new Date(app.submittedAt).toLocaleDateString("en-IN")}</div>
+                            <div className="text-sm text-gray-500">
+                              {new Date(app.submittedAt).toLocaleTimeString("en-IN", {
+                                hour: "2-digit",
+                                minute: "2-digit"
+                              })}
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge
+                            variant={
+                              app.status === "pending" ? "secondary" : "default"
+                            }
+                          >
+                            {app.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          {app.job?.location || "N/A"}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <FileText className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-lg font-medium text-gray-900 mb-2">No Applications Yet</h3>
+                <p className="text-gray-500">
+                  When candidates apply for your job postings, they will appear here.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <DialogFooter>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setIsApplicationsModalOpen(false)}
+            >
+              Close
+            </Button>
+            {applications.length > 0 && (
+              <Button
+                type="button"
+                className="bg-blue-900 hover:bg-blue-800"
+                onClick={() => {
+                  const csvContent = "data:text/csv;charset=utf-8," +
+                    "Name,Position,Email,Phone,Applied On,Status,Location\n" +
+                    applications.map(app =>
+                      `"${app.fullName}","${app.job?.title || 'N/A'}","${app.email}","${app.phone}","${new Date(app.submittedAt).toLocaleDateString('en-IN')}","${app.status}","${app.job?.location || 'N/A'}"`
+                    ).join("\n");
+                  const encodedUri = encodeURI(csvContent);
+                  const link = document.createElement("a");
+                  link.setAttribute("href", encodedUri);
+                  link.setAttribute("download", "job_applications.csv");
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                Download CSV
+              </Button>
+            )}
           </DialogFooter>
         </DialogContent>
       </Dialog>
