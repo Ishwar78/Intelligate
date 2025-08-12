@@ -15,17 +15,13 @@ async function connectToMongoDB() {
   return client.db(DB_NAME);
 }
 
-// Email configuration - Using Outlook SMTP service
+// Email configuration - Using Gmail temporarily (working configuration)
+// TODO: Fix Outlook authentication for admin@intelligatesolution.com
 const transporter = nodemailer.createTransport({
-  host: 'smtp-mail.outlook.com',
-  port: 587,
-  secure: false, // true for 465, false for other ports
+  service: 'gmail',
   auth: {
-    user: 'admin@intelligatesolution.com',
-    pass: 'qnztrxfqhpxgrlff'
-  },
-  tls: {
-    ciphers: 'SSLv3'
+    user: 'sharmaishwar970@gmail.com',
+    pass: 'jhgc mraj kcrg flgj'
   }
 });
 
