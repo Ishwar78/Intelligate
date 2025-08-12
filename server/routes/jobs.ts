@@ -337,7 +337,13 @@ export const submitApplication: RequestHandler = async (req, res) => {
 // Get all applications (Admin only)
 export const getApplications: RequestHandler = async (req, res) => {
   try {
+    console.log("Fetching applications from MongoDB...");
     const db = await connectToMongoDB();
+
+    // First, let's check how many applications exist
+    const totalCount = await db.collection("job_applications").countDocuments();
+    console.log(`Total applications in database: ${totalCount}`);
+
     const applications = await db
       .collection("job_applications")
       .aggregate([
@@ -358,6 +364,7 @@ export const getApplications: RequestHandler = async (req, res) => {
       ])
       .toArray();
 
+    console.log(`Found ${applications.length} applications with job details`);
     res.json(applications);
   } catch (error) {
     console.error("Error fetching applications:", error);
